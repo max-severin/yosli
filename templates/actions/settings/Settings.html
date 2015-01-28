@@ -1,0 +1,70 @@
+<h1>Баннеры</h1>
+<div class="fields form">
+    <form action="?module=plugins&id=yosli&action=save" method="post" id="plugins-settings-form">
+        {$wa->csrf()}
+
+        <div class="field">
+            <div class="name">
+                Статус плагина
+            </div>
+            <div class="value">
+                <select name="shop_yosli[status]">
+                    <option {if isset($settings.status) &&  $settings.status == 0} selected="selected"{/if} value="0">Выключен</option>
+                    <option {if isset($settings.status) && $settings.status == 1} selected="selected"{/if} value="1">Включен</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="name">
+                Эффекты слайдера
+            </div>
+            <div class="value">
+                <select name="shop_yosli[effects]">
+                    <option {if isset($settings.effects) &&  $settings.effects == 1} selected="selected"{/if} value="1">1</option>
+                    <option {if isset($settings.effects) && $settings.effects == 2} selected="selected"{/if} value="2">2</option>
+                    <option {if isset($settings.effects) && $settings.effects == 3} selected="selected"{/if} value="3">3</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="value submit">
+                <input type="submit" class="button green" value="Сохранить">
+                <span id="plugins-settings-form-status" style="display:none">
+                    <i style="vertical-align:middle" class="icon16 yes"></i> [`Saved`]
+                </span>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="clear-both"></div>
+
+<script type="text/javascript">
+    $(function() {
+        $("#plugins-settings-form").submit(function() {
+            var f = $(this);
+            $.post(f.attr('action'), f.serialize(), function(response) {
+                if (response.status == 'ok') {
+                    $('#wa-design-button').removeClass('red').addClass('green');
+                    $("#wa-editor-status-fail").hide()
+                    $("#wa-editor-status-ok span").html(response.data.message);
+                    $("#wa-editor-status-ok").fadeIn('slow', function() {
+                        $(this).fadeOut(1000);
+                    });
+                    $("#wa-app #mainmenu .tabs").find('li a[href="?plugin=yosli"]').closest('li').remove();
+                    if ( $("#plugins-settings-form select[name='shop_yosli[status]']").val() == 1 ) {
+                        $("#wa-app #mainmenu .tabs li:last").before('<li class="no-tab"><a href="?plugin=yosli">Баннеры</a></li>');
+                    }
+                } else {
+                    $('#wa-design-button').removeClass('green').addClass('red');
+                    $("#wa-editor-status-ok").hide();
+                    $("#wa-editor-status-fail span").html(response.errors.join(', '));
+                    $("#wa-editor-status-fail").fadeIn('slow');
+                }
+            }, "json")
+            return false;
+        });
+    });
+</script>

@@ -1,2 +1,2 @@
-# yosli
-Banners (slider) plugin for Webasyst Shop-Script 5
+# Banners for Webasyst Shop-Script 5
+{here must be description}

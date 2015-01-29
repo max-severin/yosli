@@ -17,6 +17,7 @@ function makeYosliForm(slide, url, h1Header) {
     var old_file = makeYosliInput("hidden", "old_filename", slide.filename);
     var file = makeYosliInput("file", "filename", "");
     var submit = makeYosliInput("submit", "", "Сохранить");
+    submit.setAttribute("class", "button green");
 
     if (slide.filename) {
         var image = document.createElement("img");

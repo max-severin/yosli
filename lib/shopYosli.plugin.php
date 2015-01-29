@@ -2,19 +2,6 @@
 
 class shopYosliPlugin extends shopPlugin {
 
-    public function frontendHeader() {           
-/*
-            $app_settings_model = new waAppSettingsModel();
-            $settings = $app_settings_model->get(array('shop', 'callb'));
-
-            $view = wa()->getView(); 
-            $view->assign('call_b_settings', $settings);
-            $html = $view->fetch($this->path.'/templates/Frontend.html');
-
-            return $html;        
-*/
-    }
-
     public function backendMenu() {
         
         if ( $this->getSettings('status') ) {
@@ -26,6 +13,17 @@ class shopYosliPlugin extends shopPlugin {
         } else {
         	return;
         }
+    }
+
+    static function display() {
+        $model = new shopYosliPluginSlidesModel();
+        $slides = $model->order('id DESC')->fetchAll();
+        
+        $view = wa()->getView(); 
+        $view->assign('slides', $slides);
+        $html = $view->fetch(realpath(dirname(__FILE__)."/../").'/templates/Frontend.html');
+
+        return $html;
     }
 
 }

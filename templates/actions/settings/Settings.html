@@ -1,4 +1,7 @@
 <h1>Баннеры</h1>
+
+<div class="block">Для вывода блока с баннерами используйте следующий код: <strong>{literal}{shopYosliPlugin::display()}{/literal}</strong></div>
+
 <div class="fields form">
     <form action="?module=plugins&id=yosli&action=save" method="post" id="plugins-settings-form">
         {$wa->csrf()}
@@ -17,14 +20,81 @@
 
         <div class="field">
             <div class="name">
-                Эффекты слайдера
+                Шаблон плагина
             </div>
             <div class="value">
-                <select name="shop_yosli[effects]">
-                    <option {if isset($settings.effects) &&  $settings.effects == 1} selected="selected"{/if} value="1">1</option>
-                    <option {if isset($settings.effects) && $settings.effects == 2} selected="selected"{/if} value="2">2</option>
-                    <option {if isset($settings.effects) && $settings.effects == 3} selected="selected"{/if} value="3">3</option>
+                <select name="shop_yosli[theme]">
+                    <option {if isset($settings.theme) &&  $settings.theme == "bar"} selected="selected"{/if} value="bar">
+                        bar
+                    </option>
+                    <option {if isset($settings.theme) && $settings.theme == "dark"} selected="selected"{/if} value="dark">
+                        dark
+                    </option>
+                    <option {if isset($settings.theme) && $settings.theme == "default"} selected="selected"{/if} value="default">
+                        default
+                    </option>
+                    <option {if isset($settings.theme) && $settings.theme == "light"} selected="selected"{/if} value="light">
+                        light
+                    </option>
                 </select>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="name">
+                Эффект анимации
+            </div>
+            <div class="value">
+                <select name="shop_yosli[effect]">
+                    <option {if isset($settings.effect) &&  $settings.effect == "sliceDown"} selected="selected"{/if} value="sliceDown">
+                        sliceDown
+                    </option>
+                    <option {if isset($settings.effect) && $settings.effect == "sliceDownLeft"} selected="selected"{/if} value="
+                    sliceDownLeft">
+                        sliceDownLeft
+                    </option>
+                    <option {if isset($settings.effect) && $settings.effect == "sliceUp"} selected="selected"{/if} value="sliceUp">
+                        sliceUp
+                    </option> 
+                    <option {if isset($settings.effect) &&  $settings.effect == "sliceUpLeft"} selected="selected"{/if} value="sliceUpLeft">
+                        sliceUpLeft
+                    </option>
+                    <option {if isset($settings.effect) && $settings.effect == "sliceUpDown"} selected="selected"{/if} value="
+                    sliceUpDown">
+                        sliceUpDown
+                    </option>
+                    <option {if isset($settings.effect) && $settings.effect == "sliceUpDownLeft"} selected="selected"{/if} value="sliceUpDownLeft">
+                        sliceUpDownLeft
+                    </option> 
+                    <option {if isset($settings.effect) &&  $settings.effect == "fold"} selected="selected"{/if} value="fold">
+                        fold
+                    </option>
+                    <option {if isset($settings.effect) && $settings.effect == "fade"} selected="selected"{/if} value="
+                    fade">
+                        fade
+                    </option>
+                    <option {if isset($settings.effect) && $settings.effect == "random"} selected="selected"{/if} value="random">
+                        random
+                    </option> 
+                </select>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="name">
+                Ширина изображения
+            </div>
+            <div class="value">
+                <input type="text" name="shop_yosli[width]" value="{if isset($settings.width)}{$settings.width}{/if}" />
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="name">
+                Высота изображения
+            </div>
+            <div class="value">
+                <input type="text" name="shop_yosli[height]" value="{if isset($settings.height)}{$settings.height}{/if}" />
             </div>
         </div>
 

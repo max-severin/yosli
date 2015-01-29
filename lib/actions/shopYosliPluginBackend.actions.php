@@ -24,21 +24,8 @@ class shopYosliPluginBackendActions extends waViewActions {
             $file = waRequest::file('filename');
             $create_datetime = date('Y-m-d H:i:s');  
 
-            if ( file_exists($file) ) {
-                $rand = mt_rand();
-                $name = "$rand.original.jpg";
-                $filename = wa()->getDataPath("yosli/{$name}", TRUE, 'shop'); 
-
-                waFiles::move($file, $filename);   
-
-                try {
-                    $img = waImage::factory($filename);
-                } catch(Exception $e) {
-                    // Nope... it's not an image.
-                    $errors = 'File is not an image ('.$e->getMessage().').';
-                    return;
-                }
-                $img->resize(600, 800, waImage::AUTO)->save($filename, 90);
+            if ( file_exists($file) ) {                
+                $name = $this->saveFile($file, $old_file);   
             }
 
             $model->insert(array(
@@ -68,24 +55,7 @@ class shopYosliPluginBackendActions extends waViewActions {
 
             $name = $old_file; 
             if ( file_exists($file) ) {
-                $rand = mt_rand();
-                $name = "$rand.original.jpg";
-                $filename = wa()->getDataPath("yosli/{$name}", TRUE, 'shop'); 
-
-                waFiles::move($file, $filename);   
-
-                try {
-                    $img = waImage::factory($filename);
-                } catch(Exception $e) {
-                    // Nope... it's not an image.
-                    $errors = 'File is not an image ('.$e->getMessage().').';
-                    return;
-                }
-                $img->resize(600, 800, waImage::AUTO)->save($filename, 90);
-
-                if ($old_file) {
-                	waFiles::delete(wa()->getDataPath("yosli/{$old_file}", TRUE, 'shop'));
-                }
+                $name = $this->saveFile($file, $old_file);                
             }
 
             $model->updateById($id, array(
@@ -98,6 +68,42 @@ class shopYosliPluginBackendActions extends waViewActions {
         
         $this->redirect('?plugin=yosli');
 
+    }
+
+    public function saveFile($file, $old_file = false) {
+        $app_settings_model = new waAppSettingsModel();
+        $settings = $app_settings_model->get(array('shop', 'yosli'));
+
+        if ($settings['height'])
+            $height = $settings['height'];
+        else 
+            $height = 800;
+
+        if ($settings['width'])
+            $width = $settings['width'];
+        else 
+            $width = 800;
+
+        $rand = mt_rand();
+        $name = "$rand.original.jpg";
+        $filename = wa()->getDataPath("yosli/{$name}", TRUE, 'shop'); 
+
+        waFiles::move($file, $filename);   
+
+        try {
+            $img = waImage::factory($filename);
+        } catch(Exception $e) {
+            // Nope... it's not an image.
+            $errors = 'File is not an image ('.$e->getMessage().').';
+            return;
+        }
+        $img->resize($height, $width, waImage::AUTO)->save($filename, 90);
+
+        if ($old_file) {
+            waFiles::delete(wa()->getDataPath("yosli/{$old_file}", TRUE, 'shop'));
+        }
+
+        return $name;
     }
 
 

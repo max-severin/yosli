@@ -99,6 +99,24 @@
         </div>
 
         <div class="field">
+            <div class="name">
+                Скорость анимации
+            </div>
+            <div class="value">
+                <input type="text" name="shop_yosli[speed]" value="{if isset($settings.speed)}{$settings.speed}{/if}" />
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="name">
+                Время паузы
+            </div>
+            <div class="value">
+                <input type="text" name="shop_yosli[pause_time]" value="{if isset($settings.pause_time)}{$settings.pause_time}{/if}" />
+            </div>
+        </div>
+
+        <div class="field">
             <div class="value submit">
                 <input type="submit" class="button green" value="Сохранить">
                 <span id="plugins-settings-form-status" style="display:none">

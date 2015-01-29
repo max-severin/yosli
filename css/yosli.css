@@ -8,8 +8,20 @@
     line-height: 60px;
 }
 .edit-image {
-	width: 400px;
+	box-shadow: -1px 0 5px rgba(0, 0, 0, 0.1);
+    margin: -38px 0 0 420px;
+    position: absolute;
+    width: 400px;
 }
 #yosli-delete {
 	
+}
+
+#s-sidebar {
+    box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    padding-bottom: 60px;
+    padding-right: 10px;
+    padding-top: 42px;
+    position: relative;
 }

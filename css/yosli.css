@@ -1,0 +1,15 @@
+.slide-image {
+	border-radius: 50%;
+    display: block;
+    float: right;
+    height: 60px;
+}
+.slide-title {
+    line-height: 60px;
+}
+.edit-image {
+	width: 400px;
+}
+#yosli-delete {
+	
+}

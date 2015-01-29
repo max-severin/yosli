@@ -1,0 +1,41 @@
+<style type="text/css">
+    {include file="../../../css/yosli.css" inline}
+</style>
+
+<script type="text/javascript">
+{include file="../../../js/yosli.js"}
+</script>
+	
+<div id="s-sidebar" class="sidebar left250px">
+	<div class="block">
+		<ul class="menu-v with-icons">
+			<li class="bottom-padded">
+				<a class="bold" href="#" id="yosli-create"><i class="icon16 add"></i>Добавить</a>
+			</li>
+			{section name=i loop=$slides}
+			<li id="s-all-products" class="selected">
+				<a class="yosli-edit" href="#">
+					<input class="slide-id" type="hidden" value="{$slides[i].id}" />
+					{if $slides[i].filename}
+						<img class="slide-image" src="/wa-data/public/shop/yosli/{$slides[i].filename}" />
+					{/if}
+					<span class="slide-title">{$slides[i].title}</span>
+				</a>
+			</li>
+			{/section}
+		</ul>
+	</div>
+</div>
+<div id="s-content" class="content left250px blank">
+	{if !$slides}
+		<div class="block double-padded align-center gray">
+			<strong>Пока что не добавлено ни одного слайда.</strong>
+			<br>
+			<br>
+			0 слайдов из 0
+		</div>
+	{else}
+
+	{/if}
+</div>
+

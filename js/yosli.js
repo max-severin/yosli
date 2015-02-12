@@ -18,6 +18,7 @@ function makeYosliForm(slide, url, h1Header) {
     var file = makeYosliInput("file", "filename", "");
     var submit = makeYosliInput("submit", "", "Сохранить");
     submit.setAttribute("class", "button green");
+    submit.setAttribute("id", "sbmBtn");
 
     if (slide.filename) {
         var image = document.createElement("img");
@@ -32,13 +33,6 @@ function makeYosliForm(slide, url, h1Header) {
 
     form.appendChild(id);
     form.appendChild(old_file);
-    if (slide.id) {
-        var deleteHandler = document.createElement("a");
-        deleteHandler.setAttribute("href", "#");
-        deleteHandler.setAttribute("id", "yosli-delete");
-        deleteHandler.innerHTML = "Удалить";
-        form.appendChild(deleteHandler);
-    }
     if (image) {
         form.appendChild(image);
     }
@@ -49,6 +43,19 @@ function makeYosliForm(slide, url, h1Header) {
 
     wrapper.appendChild(header);
     wrapper.appendChild(form);
+
+    if (slide.id) {
+        var deleteIcon = document.createElement("i");
+        deleteIcon.setAttribute("class", "icon16 delete");
+        
+        var deleteHandler = document.createElement("a");
+        deleteHandler.setAttribute("href", "#");
+        deleteHandler.setAttribute("id", "yosli-delete");
+        deleteHandler.innerHTML = "Удалить";
+        deleteHandler.insertBefore(deleteIcon, deleteHandler.firstChild);
+        var sbmBtn = submitBlock.children[1];
+        sbmBtn.insertBefore(deleteHandler, sbmBtn.firstChild);
+    }
 
     return wrapper;
 
@@ -115,7 +122,7 @@ $(document).on('click', "#yosli-delete", function() {
         if (id) {
             $.get('?plugin=yosli&action=delete&id='+id+'&old_filename='+oldFilename, function (result) {
                 if (result && result.data == true) {
-                    $("#s-content").html('YO!');
+                    $("#s-content").html('<div class="block double-padded align-center gray"><strong>Изображение удалено.</strong></div>');
                     $("input.slide-id[value='"+id+"']").closest("li").hide(600, function() {
                         $(this).show("normal");
                         $(this).remove();

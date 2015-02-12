@@ -29,13 +29,12 @@
 <div id="s-content" class="content left250px blank">
 	{if !$slides}
 		<div class="block double-padded align-center gray">
-			<strong>Пока что не добавлено ни одного слайда.</strong>
-			<br>
-			<br>
-			0 слайдов из 0
+			<strong>Пока что не добавлено ни одного изображения.</strong>
 		</div>
 	{else}
-
+		<div class="block left-padded">
+			{shopYosliPlugin::display()}
+		</div>
 	{/if}
 </div>
 

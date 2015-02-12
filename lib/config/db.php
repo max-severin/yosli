@@ -1,4 +1,9 @@
 <?php
+
+/*
+ * @author Max Severin <makc.severin@gmail.com>
+ */
+
 return array(
     'shop_yosli' => array(
         'id' => array('int', 11, 'null' => 0),

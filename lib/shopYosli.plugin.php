@@ -1,7 +1,13 @@
 <?php
 
+/*
+ * Class shopYosliPlugin
+ * @author Max Severin <makc.severin@gmail.com>
+ */
+
 class shopYosliPlugin extends shopPlugin {
 
+    /** Handler for backend_menu event: return plugin button in backend menu. */
     public function backendMenu() {
         
         if ( $this->getSettings('status') ) {
@@ -19,6 +25,7 @@ class shopYosliPlugin extends shopPlugin {
         }
     }
 
+    /** Method for frontend which displays jquery slider. */
     static function display() {
 
         $app_settings_model = new waAppSettingsModel();
@@ -42,8 +49,7 @@ class shopYosliPlugin extends shopPlugin {
 
             return;
 
-        }
-        
+        }        
 
     }
 

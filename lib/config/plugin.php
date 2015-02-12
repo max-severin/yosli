@@ -1,15 +1,18 @@
 <?php
 
+/*
+ * @author Max Severin <makc.severin@gmail.com>
+ */
+
 return array(
     'name' => 'Баннеры',
-    'description' => 'Модуль банеры (слайдер) с выбором нескольких видов анимации',
+    'description' => 'Вывод анимируемых баннеров в виде слайдера',
     'img' => 'img/yosli.png',
     'version' => '1.0',
-    'rights' => false,
     'shop_settings' => true,
     'frontend' => true,
     'handlers' => array(
         'backend_menu' => 'backendMenu',
-        'frontend_head' => 'frontendHeader', // or using 'frontend_homepage' hook
+        'frontend_head' => 'frontendHeader',
     )
 );

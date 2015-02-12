@@ -1,2 +1,2 @@
-# Banners for Webasyst Shop-Script 5
-{here must be description}
+# Yosli - slider of banner-images
+Plugin for Webasyst Shop-Script 5, allows you to save images (with links and name) and beautifully displayed in the slider form in shop frontend. The plugin uses jquery nivo-slider plugin. 

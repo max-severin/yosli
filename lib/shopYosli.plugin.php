@@ -17,9 +17,9 @@ class shopYosliPlugin extends shopPlugin {
         $html = '';
         
         if ($this->getSettings('status') === 'on') {
-	        $html = '<li ' . (waRequest::get('plugin') == $this->id ? 'class="selected"' : 'class="no-tab"') . '>
-	                    <a href="?plugin=yosli">Слайдер</a>
-	                </li>';
+            $html = '<li ' . (waRequest::get('plugin') == $this->id ? 'class="selected"' : 'class="no-tab"') . '>
+                        <a href="?plugin=yosli">Слайдер</a>
+                    </li>';
         }
 
         return array('core_li' => $html);

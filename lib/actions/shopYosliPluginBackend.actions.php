@@ -4,22 +4,18 @@
  * Class shopYosliPluginBackendActions
  * @author Max Severin <makc.severin@gmail.com>
  */
-
 class shopYosliPluginBackendActions extends waViewActions {
 
-    public function defaultAction() {
-        
+    public function defaultAction() {        
     	$model = new shopYosliPluginSlidesModel();
         $slides = $model->order('id DESC')->fetchAll();
         
         $this->view->assign('slides', $slides);
 
         $this->setLayout(new shopYosliPluginBackendLayout());
-
     }
 
-    public function createAction() {        
-
+    public function createAction() {
         if (waRequest::method() == 'post') {
         
             $model = new shopYosliPluginSlidesModel();
@@ -42,11 +38,9 @@ class shopYosliPluginBackendActions extends waViewActions {
         }
         
         $this->redirect('?plugin=yosli');
-
     }
 
-    public function updateAction() {        
-
+    public function updateAction() {
         if (waRequest::method() == 'post') {
         
             $model = new shopYosliPluginSlidesModel();
@@ -72,11 +66,9 @@ class shopYosliPluginBackendActions extends waViewActions {
         }       
         
         $this->redirect('?plugin=yosli');
-
     }
 
     public function saveFile($file, $old_file = false) {
-
         $app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'yosli'));
 
@@ -103,7 +95,6 @@ class shopYosliPluginBackendActions extends waViewActions {
         }
 
         return $name;
-
     }
 
 }

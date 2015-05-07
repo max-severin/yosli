@@ -4,11 +4,9 @@
  * Class shopYosliPluginBackendDeleteController
  * @author Max Severin <makc.severin@gmail.com>
  */
-
 class shopYosliPluginBackendDeleteController extends waJsonController {
 
-    public function execute() {           
-
+    public function execute() {
         $id = (int)waRequest::get('id');                          
         $old_file = waRequest::get('old_filename');  
         
@@ -26,8 +24,7 @@ class shopYosliPluginBackendDeleteController extends waJsonController {
 
             $this->response = false;
 
-        } 
-            
+        }             
     }
     
 }

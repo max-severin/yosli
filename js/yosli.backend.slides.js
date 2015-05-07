@@ -77,6 +77,7 @@ var yosliBackendSlides = (function () { "use strict";
 
     makeYosliInput = function (type, name, value) {
         var input = document.createElement("input");
+        
         input.type = type;
         input.name = name;
         input.value = value;

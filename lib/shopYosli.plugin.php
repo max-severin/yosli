@@ -4,16 +4,15 @@
  * Class shopYosliPlugin
  * @author Max Severin <makc.severin@gmail.com>
  */
-
 class shopYosliPlugin extends shopPlugin {
 
     /** Handler for backend_menu event: return plugin button in backend menu. */
     public function backendMenu() {
         
-        if ( $this->getSettings('status') ) {
+        if ( $this->getSettings('status') === 'on' ) {
 
 	        $html = '<li ' . (waRequest::get('plugin') == $this->id ? 'class="selected"' : 'class="no-tab"') . '>
-	                    <a href="?plugin=yosli">Баннеры</a>
+	                    <a href="?plugin=yosli">Слайдер</a>
 	                </li>';
 
 	        return array('core_li' => $html);

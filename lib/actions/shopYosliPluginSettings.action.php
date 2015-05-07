@@ -4,15 +4,12 @@
  * Class shopYosliPluginSettingsAction
  * @author Max Severin <makc.severin@gmail.com>
  */
-
-class shopYosliPluginSettingsAction extends waViewAction {
+class shopYosliPluginSettingsAction extends shopPluginsSettingsAction {
 
     public function execute() {
+    	$_GET['id'] = 'yosli';
 
-        $app_settings_model = new waAppSettingsModel();
-        $settings = $app_settings_model->get(array('shop', 'yosli'));
-        $this->view->assign('settings', $settings);
-
+        parent::execute();
     }
 
 }

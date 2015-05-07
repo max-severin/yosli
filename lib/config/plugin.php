@@ -3,12 +3,11 @@
 /*
  * @author Max Severin <makc.severin@gmail.com>
  */
-
 return array(
-    'name' => 'Баннеры',
-    'description' => 'Вывод анимируемых баннеров в виде слайдера',
+    'name' => 'Слайдер',
+    'version' => '1.0.0',
     'img' => 'img/yosli.png',
-    'version' => '1.0',
+    'vendor' => 1020720,
     'shop_settings' => true,
     'frontend' => true,
     'handlers' => array(

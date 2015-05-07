@@ -1,27 +1,4 @@
 {if $slides}
-<style>
-.nivo-thumbs-enabled {
-    margin: -605px 0 0 800px !important;
-    position: absolute !important;
-    width: 120px !important;
-    z-index: 99 !important;
-}
-.nivo-thumbs-enabled a {
-    margin: 10px 0 !important;
-    padding: 0 !important;
-}
-.nivo-thumbs-enabled img {
-    height: 75px !important;
-    opacity: 0.75 !important;
-    width: 120px !important;
-}
-.nivo-thumbs-enabled img:hover {
-    opacity: 1 !important;
-}
-.nivo-caption {
-    display: none !important;
-}
-</style>
 
 	<link media="screen" type="text/css" href="/wa-apps/shop/plugins/yosli/nivo/themes/{$settings.theme}/{$settings.theme}.css" rel="stylesheet">
     <link media="screen" type="text/css" href="/wa-apps/shop/plugins/yosli/nivo/nivo-slider.css" rel="stylesheet">
@@ -31,7 +8,7 @@
         <div id="slider" class="nivoSlider">
             {section name=i loop=$slides}
                 {if $slides[i].link}<a href="{$slides[i].link}">{/if} 
-                    <img src="/wa-data/public/shop/yosli/{$slides[i].filename}" alt="{$slides[i].title}" title="{$slides[i].title}" data-thumb="/wa-data/public/shop/yosli/{$slides[i].filename}" /> 
+                    <img src="/wa-data/public/shop/yosli/{$slides[i].filename}" alt="{$slides[i].title}" title="{$slides[i].title}" /> 
                 {if $slides[i].link}</a>{/if}
             {/section}
         </div>
@@ -44,11 +21,9 @@
         	effect: "{$settings.effect}",  
         	animSpeed: {$settings.speed}, 
         	pauseTime: {$settings.pause_time}, 
-            directionNav: false,
+            directionNav: true,
             controlNav: true,
-            controlNavThumbs: true,
             pauseOnHover: true,
-            manualAdvance: false,
         });
 
     });

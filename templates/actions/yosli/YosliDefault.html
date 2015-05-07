@@ -3,7 +3,13 @@
 </style>
 
 <script type="text/javascript">
-{include file="../../../js/yosli.js"}
+	{include file="../../../js/yosli.backend.slides.js"}
+</script>
+
+<script type="text/javascript">
+    (function ($) {
+        yosliBackendSlides.initModule();
+    })(jQuery);
 </script>
 	
 <div id="s-sidebar" class="sidebar left250px">
@@ -27,6 +33,9 @@
 	</div>
 </div>
 <div id="s-content" class="content left250px blank">
+	<div class="block align-right gray">
+		Для вывода слайдера с баннерами во фронтенде вставьте в нужное место шаблона следующий код: <strong>{literal}{shopYosliPlugin::display()}{/literal}<strong>
+	</div>
 	{if !$slides}
 		<div class="block double-padded align-center gray">
 			<strong>Пока что не добавлено ни одного изображения.</strong>

@@ -6,6 +6,6 @@
  */
 class shopYosliPluginSlidesModel extends waModel {
 
-	protected $table = 'shop_yosli';
+	protected $table = 'shop_yosli_slide';
 
 }

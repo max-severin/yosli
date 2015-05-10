@@ -1,2 +1,19 @@
-# Yosli - slider of banner-images
-Plugin for Webasyst Shop-Script 5, allows you to save images (with links and name) and beautifully displayed in the slider form in shop frontend. The plugin uses jquery nivo-slider plugin. 
+# yosli
+
+## Описание
+Плагин слайдер для Webasyst Shop-Script
+
+## Возможности
+Плагин позволяет создать слайдер изображений. К изображению можно привязать ссылку и заголовок.
+
+В качестве jQuery плагина используется Nivo Slider - https://github.com/gilbitron/Nivo-Slider.
+
+## Установка
+### Автоматическая
+...
+
+### Ручная
+Распаковать содержимое плагина в папку /wa-apps/shop/plugins и в файле /wa-config/apps/shop/plugins.php добавить 'yosli' => true
+
+## Особенности
+Для вывода слайдера вставьте в необходимое место шаблона следующий код: **{shopYosliPlugin::display()}**

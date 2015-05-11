@@ -43,13 +43,15 @@ return array(
         ),
     ),
     'width' => array(
-        'title'        => 'Ширина изображения (px)',
+        'title'        => 'Ширина (px)',
+        'description'  => 'Ширина, формируемая при загрузке изображений.',
         'placeholder'  => '480',
         'value'        => '480',
         'control_type' => waHtmlControl::INPUT,
     ),
     'height' => array(
-        'title'        => 'Высота изображения (px)',
+        'title'        => 'Высота (px)',
+        'description'  => 'Высота, формируемая при загрузке изображений.',
         'placeholder'  => '300',
         'value'        => '300',
         'control_type' => waHtmlControl::INPUT,

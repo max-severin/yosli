@@ -19,10 +19,10 @@ return array(
         'value'        => 'default',
         'control_type' => waHtmlControl::SELECT,
         'options'      => array(
-            'bar' => 'bar',
-            'dark'  => 'dark',
+            'bar'     => 'bar',
+            'dark'    => 'dark',
             'default' => 'default',
-            'light'  => 'light',
+            'light'   => 'light',
         ),
     ),
     'effect' => array(
@@ -31,15 +31,15 @@ return array(
         'value'        => 'random',
         'control_type' => waHtmlControl::SELECT,
         'options'      => array(
-            'sliceDown' => 'sliceDown',
-            'sliceDownLeft'  => 'sliceDownLeft',
-            'sliceUp' => 'sliceUp',
-            'sliceUpLeft'  => 'sliceUpLeft',
-            'sliceUpDown' => 'sliceUpDown',
-            'sliceUpDownLeft'  => 'sliceUpDownLeft',
-            'fold' => 'fold',
-            'fade'  => 'fade',
-            'random'  => 'random',
+            'sliceDown'       => 'sliceDown',
+            'sliceDownLeft'   => 'sliceDownLeft',
+            'sliceUp'         => 'sliceUp',
+            'sliceUpLeft'     => 'sliceUpLeft',
+            'sliceUpDown'     => 'sliceUpDown',
+            'sliceUpDownLeft' => 'sliceUpDownLeft',
+            'fold'            => 'fold',
+            'fade'            => 'fade',
+            'random'          => 'random',
         ),
     ),
     'width' => array(
@@ -67,5 +67,41 @@ return array(
         'placeholder'  => '6000',
         'value'        => '6000',
         'control_type' => waHtmlControl::INPUT,
+    ),
+    'direction_nav' => array(
+        'title'        => 'Отображение кнопок «вперед» и «назад»',
+        'value'        => 'false',
+        'control_type' => waHtmlControl::SELECT,
+        'options'      => array(
+            'false' => 'Выключен',
+            'true'  => 'Включен',
+        ),
+    ),
+    'control_nav' => array(
+        'title'        => 'Отображение навигации',
+        'value'        => 'true',
+        'control_type' => waHtmlControl::SELECT,
+        'options'      => array(
+            'false' => 'Выключен',
+            'true'  => 'Включен',
+        ),
+    ),
+    'pause_on_hover' => array(
+        'title'        => 'Остановка анимации при наведении',
+        'value'        => 'true',
+        'control_type' => waHtmlControl::SELECT,
+        'options'      => array(
+            'false' => 'Выключен',
+            'true'  => 'Включен',
+        ),
+    ),
+    'control_nav_thumbs' => array(
+        'title'        => 'Отображение миниатюр',
+        'value'        => 'false',
+        'control_type' => waHtmlControl::SELECT,
+        'options'      => array(
+            'false' => 'Выключен',
+            'true'  => 'Включен',
+        ),
     ),
 );

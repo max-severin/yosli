@@ -8,7 +8,7 @@
         <div id="slider" class="nivoSlider">
             {section name=i loop=$slides}
                 {if $slides[i].link}<a href="{$slides[i].link}">{/if} 
-                    <img src="/wa-data/public/shop/yosli/{$slides[i].filename}" alt="{$slides[i].title}" title="{$slides[i].title}" /> 
+                    <img src="/wa-data/public/shop/yosli/{$slides[i].filename}" data-thumb="/wa-data/public/shop/yosli/{$slides[i].filename}" alt="{$slides[i].title}" title="{$slides[i].title}" /> 
                 {if $slides[i].link}</a>{/if}
             {/section}
         </div>
@@ -21,9 +21,10 @@
             effect: "{$settings.effect}",  
             animSpeed: {$settings.speed}, 
             pauseTime: {$settings.pause_time}, 
-            directionNav: true,
-            controlNav: true,
-            pauseOnHover: true,
+            directionNav: {$settings.direction_nav},
+            controlNav: {$settings.control_nav},
+            pauseOnHover: {$settings.pause_on_hover},
+            controlNavThumbs: {$settings.control_nav_thumbs},
         });
 
     });

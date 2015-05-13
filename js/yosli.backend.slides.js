@@ -37,7 +37,7 @@ var yosliBackendSlides = (function () { "use strict";
 
         if (slide.filename) {
             var image = document.createElement("img");
-            image.setAttribute("src", "/wa-data/public/shop/yosli/"+slide.filename);
+            image.setAttribute("src", "{$wa_url}wa-data/public/shop/yosli/"+slide.filename);
             image.setAttribute("class", "edit-image");
         }
 

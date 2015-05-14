@@ -47,26 +47,42 @@ return array(
         'description'  => 'Ширина, формируемая при загрузке изображений.',
         'placeholder'  => '480',
         'value'        => '480',
-        'control_type' => waHtmlControl::INPUT,
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingNumberControl',
+        'options'      => array(
+            'min'  => '0',
+            'step' => '1',
+        ),
     ),
     'height' => array(
         'title'        => 'Высота (px)',
         'description'  => 'Высота, формируемая при загрузке изображений.',
         'placeholder'  => '300',
         'value'        => '300',
-        'control_type' => waHtmlControl::INPUT,
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingNumberControl',
+        'options'      => array(
+            'min'  => '0',
+            'step' => '1',
+        ),
     ),
     'speed' => array(
         'title'        => 'Скорость анимации (msec)',
         'placeholder'  => '1000',
         'value'        => '1000',
-        'control_type' => waHtmlControl::INPUT,
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingNumberControl',
+        'options'      => array(
+            'min'  => '0',
+            'step' => '1',
+        ),
     ),
     'pause_time' => array(
         'title'        => 'Время паузы (msec)',
         'placeholder'  => '6000',
         'value'        => '6000',
-        'control_type' => waHtmlControl::INPUT,
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingNumberControl',
+        'options'      => array(
+            'min'  => '0',
+            'step' => '1',
+        ),
     ),
     'direction_nav' => array(
         'title'        => 'Отображение кнопок «вперед» и «назад»',

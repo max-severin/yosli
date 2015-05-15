@@ -170,12 +170,17 @@ var yosliBackendSlides = (function () { "use strict";
         var url = "?plugin=yosli&action=create";
         var form = makeYosliForm(slide, url, "Создать слайд");
 
+        $('.yosli-edit-wrap').removeClass('selected');
+
         $("#s-content").html(form);
     };
 
     onEditHandler = function (event) {
         var t = $(this);
         var id = t.find(".slide-id").val();
+
+        $('.yosli-edit-wrap').removeClass('selected');
+        t.closest('li').addClass('selected');
 
         $.get('?plugin=yosli&action=read&id='+id, function (result) {
             if (result) {

@@ -19,7 +19,7 @@
 				<a class="bold" href="#" id="yosli-create"><i class="icon16 add"></i>Добавить</a>
 			</li>
 			{section name=i loop=$slides}
-			<li id="s-all-products" class="selected">
+			<li class="yosli-edit-wrap">
 				<a class="yosli-edit" href="#">
 					<input class="slide-id" type="hidden" value="{$slides[i].id}" />
 					{if $slides[i].filename}

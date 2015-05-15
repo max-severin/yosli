@@ -15,7 +15,7 @@
 <div id="s-sidebar" class="sidebar left250px">
 	<div class="block">
 		<ul class="menu-v with-icons">
-			<li class="bottom-padded">
+			<li class="bottom-padded bottom15px">
 				<a class="bold" href="#" id="yosli-create"><i class="icon16 add"></i>Добавить</a>
 			</li>
 			{section name=i loop=$slides}
@@ -34,10 +34,10 @@
 </div>
 <div id="s-content" class="content left250px blank">
 	<div class="block align-right gray">
-		Для вывода слайдера с баннерами во фронтенде магазина вставьте в необходимое место шаблона следующий код: <strong>{literal}{shopYosliPlugin::display()}{/literal}<strong>
+		Для вывода слайдера во фронтенде магазина вставьте в необходимое место шаблона следующий код: <strong>{literal}{shopYosliPlugin::display()}{/literal}<strong>
 	</div>
 	{if !$slides}
-		<div class="block double-padded align-center gray">
+		<div class="block double-padded align-right gray">
 			<strong>Пока что не добавлено ни одного изображения.</strong>
 		</div>
 	{else}

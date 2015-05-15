@@ -111,17 +111,27 @@ var yosliBackendSlides = (function () { "use strict";
     onFormSubmit = function (event) {
         var t = $(this);
         var titleInput = t.find("input[name='title']");
-        var idInput = t.find("input[name='id']");
+        var fileInput = t.find("input[name='filename']");
+        var oldFileInput = t.find("input[name='old_filename']");
+        var idInput = t.find("input[name='id']");            
 
-        if ( titleInput.val().length == 0 && (titleInput.val().length == 0 || t.find("input[name='filename']").val().length == 0) ) {
+        t.closest(".fields").find(".errormsg").remove();
+
+        if ( titleInput.val().length === 0 ) {
             if ( t.closest(".fields").find(".errormsg").length == 0 ) {
                 var errorBlock = makeYosliDiv("errormsg");
-                errorBlock.innerHTML = 'Заполните, пожалуйста, обязательные поля: "заголовок" и "изображение"';
+                errorBlock.innerHTML = 'Заполните, пожалуйста, поле «Заголовок»';
                 t.before(errorBlock);
 
-                if (titleInput.val().length == 0) {
-                    titleInput.focus();
-                }
+                titleInput.focus();
+            }
+
+            return false;
+        } else if ( oldFileInput.val().length === 0 && fileInput.val().length === 0 ) {
+            if ( t.closest(".fields").find(".errormsg").length == 0 ) {
+                var errorBlock = makeYosliDiv("errormsg");
+                errorBlock.innerHTML = 'Загрузите, пожалуйста, изображение';
+                t.before(errorBlock);
             }
 
             return false;
@@ -140,7 +150,7 @@ var yosliBackendSlides = (function () { "use strict";
             if (id) {
                 $.get('?plugin=yosli&action=delete&id='+id+'&old_filename='+oldFilename, function (response) {
                     if (response.data === true) {
-                        $("#s-content").html('<div class="block double-padded align-center gray"><strong>Изображение удалено.</strong></div>');
+                        $("#s-content").html('<div class="block double-padded align-right gray"><strong>Изображение удалено.</strong></div>');
 
                         $("input.slide-id[value='"+id+"']").closest("li").hide(600, function() {
                             $(this).show("normal");

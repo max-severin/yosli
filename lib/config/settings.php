@@ -47,7 +47,7 @@ return array(
         'description'  => 'Ширина, формируемая при загрузке изображений.',
         'placeholder'  => '480',
         'value'        => '480',
-        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingNumberControl',
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopYosliPlugin::settingNumberControl',
         'options'      => array(
             'min'  => '0',
             'step' => '1',
@@ -58,7 +58,7 @@ return array(
         'description'  => 'Высота, формируемая при загрузке изображений.',
         'placeholder'  => '300',
         'value'        => '300',
-        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingNumberControl',
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopYosliPlugin::settingNumberControl',
         'options'      => array(
             'min'  => '0',
             'step' => '1',
@@ -68,7 +68,7 @@ return array(
         'title'        => 'Скорость анимации (msec)',
         'placeholder'  => '1000',
         'value'        => '1000',
-        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingNumberControl',
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopYosliPlugin::settingNumberControl',
         'options'      => array(
             'min'  => '0',
             'step' => '1',
@@ -78,7 +78,7 @@ return array(
         'title'        => 'Время паузы (msec)',
         'placeholder'  => '6000',
         'value'        => '6000',
-        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingNumberControl',
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopYosliPlugin::settingNumberControl',
         'options'      => array(
             'min'  => '0',
             'step' => '1',

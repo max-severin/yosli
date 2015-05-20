@@ -31,10 +31,7 @@ class shopYosliPlugin extends shopPlugin {
      * @return string
      */
     static function display() {
-        $app_settings_model = new waAppSettingsModel();
-        $settings = $app_settings_model->get(array('shop', 'yosli'));
-
-        if (isset($settings['status']) && $settings['status'] === 'on') {
+        if ($this->getSettings('status') === 'on') {
 
             $model = new shopYosliPluginSlidesModel();
             $slides = $model->order('id DESC')->fetchAll();

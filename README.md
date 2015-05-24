@@ -1,36 +1,36 @@
 # yosli
 
-## Описание
-Плагин слайдер для Webasyst Shop-Script
+## Description
+Image slider plugin for Webasyst Shop-Script
 
-## Возможности
-Плагин позволяет создать слайдер изображений. К изображению можно привязать ссылку и заголовок.
+## Features
+The plugin allows you to create slider of images. To the image, you can snap the link and the title.
 
-В качестве jQuery плагина используется Nivo Slider - https://github.com/gilbitron/Nivo-Slider.
+Plugin uses the jQuery Nivo Slider plugin - https://github.com/gilbitron/Nivo-Slider.
 
-Доступные настройки плагина:
-- выбор из 4х стандартных шаблонов плагина nivo slider;
-- смена эффекта анимации;
-- настраиваемые размеры загружаемых файлов изображений;
-- скорость анимации;
-- время паузы;
-- отображение кнопок «вперед» и «назад»;
-- отображение навигации;
-- остановка анимации при наведении;
-- отображение миниатюр.
+Plugin settings:
+- choice of 4 standard nivo slider design themes;  
+- change the animation effect;
+- custom sizes downloadable image files;
+- animation speed;
+- pause time;
+- displays the buttons «forward» and «backward»;
+- navigation mapping;
+- stop animation while hovering;
+- display thumbnails.
 
-## Установка
-### Автоматическая
+## Installing
+### Auto
 ...
 
-### Ручная
-1. Загрузите папку с плагином из репозитория в каталог на вашем веб-сервере: /PATH_TO_WEBASYST/wa-apps/shop/plugins
+### Manual
+1. Get the code into your web server's folder /PATH_TO_WEBASYST/wa-apps/shop/plugins
 
-2. Добавьте следующую строку в файл /PATH_TO_WEBASYST/wa-config/apps/shop/plugins.php (этот файл содержит список подключенных плагинов приложения «Магазин»):
+2. Add the following line into the /PATH_TO_WEBASYST/wa-config/apps/shop/plugins.php file (this file lists all installed shop plugins):
 
 		'yosli' => true,
 
-3. Настройте плагин во вкладке «Плагины» приложения «Магазин».
+3. Done. Configure the plugin in the plugins tab of shop backend.
 
-## Особенности
-Для вывода слайдера во фронтенде магазина вставьте в необходимое место шаблона следующий код: **{shopYosliPlugin::display()}**
+## Specificity
+To output the slider in shop frontend paste in the template the following code: **{shopYosliPlugin::display()}**

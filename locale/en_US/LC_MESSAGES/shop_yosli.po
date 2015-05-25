@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/yosli\n"
+"POT-Creation-Date: 2015-05-25 06:44+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Max Severin <makc.severin@gmail.com>\n"
+"Language-Team: shop/plugins/yosli\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: en_US\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/shop/plugins/yosli/templates/actions/yosli/YosliDefault.html:19
+msgid "Add"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/templates/actions/yosli/YosliDefault.html:37
+msgid "To output the slider in shop frontend paste in the template the following code"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/templates/actions/yosli/YosliDefault.html:41
+msgid "Not yet added any images."
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:153
+msgid "The image is removed."
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:34
+msgid "Save"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:44
+msgid "Title"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:45
+msgid "Link"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:46
+msgid "Image"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:69
+msgid "Delete"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:123
+msgid "Fill in the title field"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:133
+msgid "Download image"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:142
+msgid "Delete?"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:171
+msgid "To create a slide"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:189
+msgid "To edit the slide"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.settings.js:36
+#: /wa-apps/shop/plugins/yosli/lib/shopYosli.plugin.php:21
+#: /wa-apps/shop/plugins/yosli/lib/config/plugin.php:7
+msgid "Slider"
+msgstr ""
+

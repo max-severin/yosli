@@ -18,7 +18,7 @@ class shopYosliPlugin extends shopPlugin {
         
         if ($this->getSettings('status') === 'on') {
             $html = '<li ' . (waRequest::get('plugin') == $this->id ? 'class="selected"' : 'class="no-tab"') . '>
-                        <a href="?plugin=yosli">Слайдер</a>
+                        <a href="?plugin=yosli">' . _wp('Slider') . '</a>
                     </li>';
         }
 

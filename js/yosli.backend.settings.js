@@ -33,7 +33,7 @@ var yosliBackendSettings = (function () { "use strict";
 
                 if ( $("#plugins-settings-form select[name='shop_yosli[status]']").val() === 'on' ) {
                     if (yosliTab.length === 0) {
-                        $("#wa-app #mainmenu .tabs li:last").before('<li class="no-tab"><a href="?plugin=yosli">Слайдер</a></li>');
+                        $("#wa-app #mainmenu .tabs li:last").before('<li class="no-tab"><a href="?plugin=yosli">{_wp("Slider")}</a></li>');
                     }
                 } else {
                     yosliTab.remove();

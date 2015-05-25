@@ -31,7 +31,7 @@ var yosliBackendSlides = (function () { "use strict";
         var link = makeYosliInput("text", "link", slide.link);
         var old_file = makeYosliInput("hidden", "old_filename", slide.filename);
         var file = makeYosliInput("file", "filename", "");
-        var submit = makeYosliInput("submit", "", "Сохранить");
+        var submit = makeYosliInput("submit", "", "{_wp('Save')}");
         submit.setAttribute("class", "button green");
         submit.setAttribute("id", "sbmBtn");
 
@@ -41,9 +41,9 @@ var yosliBackendSlides = (function () { "use strict";
             image.setAttribute("class", "edit-image");
         }
 
-        var titleBlock = makeYosliFieldBlock("Заголовок", title);
-        var linkBlock = makeYosliFieldBlock("Ссылка", link);
-        var fileBlock = makeYosliFieldBlock("Изображение", file);
+        var titleBlock = makeYosliFieldBlock("{_wp('Title')}", title);
+        var linkBlock = makeYosliFieldBlock("{_wp('Link')}", link);
+        var fileBlock = makeYosliFieldBlock("{_wp('Image')}", file);
         var submitBlock = makeYosliFieldBlock("", submit);
 
         form.appendChild(id);
@@ -66,7 +66,7 @@ var yosliBackendSlides = (function () { "use strict";
             var deleteHandler = document.createElement("a");
             deleteHandler.setAttribute("href", "#");
             deleteHandler.setAttribute("id", "yosli-delete");
-            deleteHandler.innerHTML = "Удалить";
+            deleteHandler.innerHTML = "{_wp('Delete')}";
             deleteHandler.insertBefore(deleteIcon, deleteHandler.firstChild);
             var sbmBtn = submitBlock.children[1];
             sbmBtn.insertBefore(deleteHandler, sbmBtn.firstChild);
@@ -120,7 +120,7 @@ var yosliBackendSlides = (function () { "use strict";
         if ( titleInput.val().length === 0 ) {
             if ( t.closest(".fields").find(".errormsg").length == 0 ) {
                 var errorBlock = makeYosliDiv("errormsg");
-                errorBlock.innerHTML = 'Заполните, пожалуйста, поле «Заголовок»';
+                errorBlock.innerHTML = "{_wp('Fill in the title field')}";
                 t.before(errorBlock);
 
                 titleInput.focus();
@@ -130,7 +130,7 @@ var yosliBackendSlides = (function () { "use strict";
         } else if ( oldFileInput.val().length === 0 && fileInput.val().length === 0 ) {
             if ( t.closest(".fields").find(".errormsg").length == 0 ) {
                 var errorBlock = makeYosliDiv("errormsg");
-                errorBlock.innerHTML = 'Загрузите, пожалуйста, изображение';
+                errorBlock.innerHTML = "{_wp('Download image')}";
                 t.before(errorBlock);
             }
 
@@ -139,7 +139,7 @@ var yosliBackendSlides = (function () { "use strict";
     };
 
     onDeleteHandler = function (event) {
-        if(confirm('Удалить?')) {
+        if(confirm("{_wp('Delete?')}")) {
 
             event.preventDefault();
 
@@ -150,7 +150,7 @@ var yosliBackendSlides = (function () { "use strict";
             if (id) {
                 $.get('?plugin=yosli&action=delete&id='+id+'&old_filename='+oldFilename, function (response) {
                     if (response.data === true) {
-                        $("#s-content").html('<div class="block double-padded align-right gray"><strong>Изображение удалено.</strong></div>');
+                        $("#s-content").html('<div class="block double-padded align-right gray"><strong>{_wp("The image is removed.")}</strong></div>');
 
                         $("input.slide-id[value='"+id+"']").closest("li").hide(600, function() {
                             $(this).show("normal");
@@ -168,7 +168,7 @@ var yosliBackendSlides = (function () { "use strict";
 
         var slide = { title: '', link: '', filename: '' };
         var url = "?plugin=yosli&action=create";
-        var form = makeYosliForm(slide, url, "Создать слайд");
+        var form = makeYosliForm(slide, url, "{_wp('To create a slide')}");
 
         $('.yosli-edit-wrap').removeClass('selected');
 
@@ -186,7 +186,7 @@ var yosliBackendSlides = (function () { "use strict";
             if (result) {
                 var slide = result.data;
                 var url = "?plugin=yosli&action=update";
-                var form = makeYosliForm(slide, url, "Редактировать слайд "+slide.title);
+                var form = makeYosliForm(slide, url, "{_wp('To edit the slide')} "+slide.title);
                 $("#s-content").html(form);
             }
         }, "json");

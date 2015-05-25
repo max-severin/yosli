@@ -4,7 +4,7 @@
  * @author Max Severin <makc.severin@gmail.com>
  */
 return array(
-    'name' => 'Слайдер',
+    'name' => /*_wp*/('Slider'),
     'version' => '1.0.0',
     'img' => 'img/yosli.png',
     'vendor' => 1020720,

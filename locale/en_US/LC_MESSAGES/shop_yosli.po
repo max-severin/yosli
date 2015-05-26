@@ -76,3 +76,79 @@ msgstr ""
 msgid "Slider"
 msgstr ""
 
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:8
+msgid "Status"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:12
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:92
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:101
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:110
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:119
+msgid "Off"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:13
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:93
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:102
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:111
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:120
+msgid "On"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:17
+msgid "Plugin theme"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:18
+msgid "Select plugin theme from standard Nivo slider themes."
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:29
+msgid "Animation effect"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:30
+msgid "Select the nivo slider animation."
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:46
+msgid "Width (px)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:47
+msgid "Width of the uploaded images."
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:57
+msgid "Height (px)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:58
+msgid "Height of the uploaded images."
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:68
+msgid "Animation speed (msec)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:78
+msgid "Pause time (msec)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:88
+msgid "Displays the buttons «forward» and «backward»"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:97
+msgid "Navigation mapping"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:106
+msgid "Stop animation while hovering"
+msgstr ""
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:115
+msgid "Display thumbnails"
+msgstr ""
+

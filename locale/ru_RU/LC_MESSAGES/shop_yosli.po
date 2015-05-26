@@ -77,3 +77,79 @@ msgstr "Редактировать слайд"
 msgid "Slider"
 msgstr "Слайдер"
 
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:8
+msgid "Status"
+msgstr "Статус плагина"
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:12
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:92
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:101
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:110
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:119
+msgid "Off"
+msgstr "Выключен"
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:13
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:93
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:102
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:111
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:120
+msgid "On"
+msgstr "Включен"
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:17
+msgid "Plugin theme"
+msgstr "Шаблон плагина"
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:18
+msgid "Select plugin theme from standard Nivo slider themes."
+msgstr "Какой шаблон из стандарных тем оформления Nivo slider будет использоваться."
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:29
+msgid "Animation effect"
+msgstr "Эффект анимации"
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:30
+msgid "Select the nivo slider animation."
+msgstr "Выберите анимацию nivo slider."
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:46
+msgid "Width (px)"
+msgstr "Ширина (px)"
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:47
+msgid "Width of the uploaded images."
+msgstr "Ширина загружаемых изображений."
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:57
+msgid "Height (px)"
+msgstr "Высота (px)"
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:58
+msgid "Height of the uploaded images."
+msgstr "Высота загружаемых изображений."
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:68
+msgid "Animation speed (msec)"
+msgstr "Скорость анимации (msec)"
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:78
+msgid "Pause time (msec)"
+msgstr "Время паузы (msec)"
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:88
+msgid "Displays the buttons «forward» and «backward»"
+msgstr "Отображение кнопок «вперед» и «назад»"
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:97
+msgid "Navigation mapping"
+msgstr "Отображение навигации"
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:106
+msgid "Stop animation while hovering"
+msgstr "Остановка анимации при наведении"
+
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:115
+msgid "Display thumbnails"
+msgstr "Отображение миниатюр"
+

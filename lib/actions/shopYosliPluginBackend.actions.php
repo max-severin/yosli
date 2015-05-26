@@ -6,8 +6,8 @@
  */
 class shopYosliPluginBackendActions extends waViewActions {
 
-    public function defaultAction() {        
-    	$model = new shopYosliPluginSlidesModel();
+    public function defaultAction() {
+        $model = new shopYosliPluginSlidesModel();
         $slides = $model->order('id DESC')->fetchAll();
         
         $this->view->assign('slides', $slides);
@@ -68,7 +68,66 @@ class shopYosliPluginBackendActions extends waViewActions {
         $this->redirect('?plugin=yosli');
     }
 
-    public function saveFile($file, $old_file = false) {
+    public function tmpimageAction() {
+        $id = (int)waRequest::request('id');
+        $file = waRequest::file('filename');
+
+        if (!$file->uploaded()) {
+             $this->sendResponse('error:No file uploaded.');
+            return;
+        }
+
+        try {
+            $img = $file->waImage();
+        } catch(Exception $e) {
+            // Nope... it's not an image.
+             $this->sendResponse('error:File is not an image ('.$e->getMessage().').');
+            return;
+        }
+
+        $app_settings_model = new waAppSettingsModel();
+        $settings = $app_settings_model->get(array('shop', 'yosli'));
+
+        ($settings['height']) ? $height = $settings['height'] : $height = 800;
+        ($settings['width']) ? $width = $settings['width'] : $width = 800;
+
+        $temp_dir  = wa()->getTempPath("yosli", 'shop');
+        $fname = uniqid($id.'_').'.jpg';
+        $img->resize($width, $height, waImage::NONE)->save($temp_dir.'/'.$fname, 90);
+
+        $photoEditors = $this->getStorage()->read('photoEditors');
+        if (!$photoEditors) {
+            $photoEditors = array();
+        }
+
+        if (isset($photoEditors[$id]) && file_exists($photoEditors[$id])) {
+            if (!unlink($photoEditors[$id])) {
+                throw new waException('Unable to delete photo temp file: '+$photoEditors[$id]);
+            }
+        }
+        $photoEditors[$id] = $temp_dir.'/'.$fname;
+
+        $this->getStorage()->write('photoEditors', $photoEditors);
+
+        $temp_file_url = $this->getPreviewUrl($fname);
+
+        $this->sendResponse( $temp_file_url );
+    }
+
+    public function dataAction() {
+        $app_id = $this->getRequest()->get('app');
+        $path = $this->getRequest()->get('path');
+
+        if ($this->getRequest()->get('temp')) {
+            $file = waSystem::getInstance()->getTempPath($path, $app_id);
+        } else {
+            $file = waSystem::getInstance()->getDataPath($path, false, $app_id);
+        }
+
+        waFiles::readFile($file);
+    }
+
+    protected function saveFile($file, $old_file = false) {
         $app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'yosli'));
 
@@ -77,7 +136,7 @@ class shopYosliPluginBackendActions extends waViewActions {
 
         $rand = mt_rand();
         $name = "$rand.original.png";
-        $filename = wa()->getDataPath("yosli/{$name}", TRUE, 'shop'); 
+        $filename = wa()->getDataPath("yosli", TRUE, 'shop'); 
 
         waFiles::move($file, $filename);   
 
@@ -95,6 +154,17 @@ class shopYosliPluginBackendActions extends waViewActions {
         }
 
         return $name;
+    }
+
+    protected function sendResponse ($string) {
+        echo '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head></head><body onload="parent.yosliBackendSlides.uploadTmpimage();">'.
+            $string
+        .'</body></html>';
+        exit();
+    }
+
+    protected function getPreviewUrl ($file) {
+        return $this->getConfig()->getBackendUrl(true).'shop/?plugin=yosli&action=data&temp=1&path=yosli/'.$file;
     }
 
 }

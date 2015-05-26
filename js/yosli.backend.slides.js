@@ -8,8 +8,8 @@
 var yosliBackendSlides = (function () { "use strict";
     //---------------- BEGIN MODULE SCOPE VARIABLES ---------------
     var
-        makeYosliForm, makeYosliInput, makeYosliDiv, makeYosliFieldBlock,
-        onFormSubmit, onDeleteHandler, onCreateHandler, onEditHandler,
+        makeYosliForm, makeYosliInput, makeYosliDiv, makeYosliFieldBlock, uploadTmpimage,
+        onFormSubmit, onDeleteHandler, onCreateHandler, onEditHandler, onFileChange,
         initModule;
     //----------------- END MODULE SCOPE VARIABLES ----------------
 
@@ -105,6 +105,30 @@ var yosliBackendSlides = (function () { "use strict";
 
         return wrapper;
     };
+    uploadTmpimage = function () {
+
+        var t = $('iframe.wall-photo-iframe');
+        var url = t.contents().find("body").html();
+        
+        var filename = '';
+
+        if (url.substr(0, 6) == 'error:') {
+            alert('Error uploading image: ' + url.substr(6));
+            // Reset the file upload selector
+            $('.imageform')[0].reset();
+            return;
+        }
+
+        var urlArray = url.split('/');
+
+        var image = $("<img />");
+        image.attr("src", url.replace(/&amp;/g, '&'));
+        image.attr("class", "edit-image");
+
+        $('body').find('#yosli-form').prepend(image);
+    
+        return false;
+    }
     //--------------------- END DOM METHODS -----------------------
 
     //------------------- BEGIN EVENT HANDLERS --------------------
@@ -191,6 +215,11 @@ var yosliBackendSlides = (function () { "use strict";
             }
         }, "json");
     };
+
+    onFileChange = function (event) {
+        // add loading gif
+        $(this).closest('.value').find('.imageform').submit();
+    };
     //------------------- END EVENT HANDLERS ----------------------
 
     //------------------- BEGIN PUBLIC METHODS --------------------
@@ -202,10 +231,13 @@ var yosliBackendSlides = (function () { "use strict";
         $(document).on('click', "#yosli-create", onCreateHandler);
 
         $(document).on('click', ".yosli-edit", onEditHandler);
+
+        $(document).on('change', "input[name='filename']", onFileChange);
     };
 
     return {
-        initModule: initModule
+        initModule: initModule,
+        uploadTmpimage: uploadTmpimage
     };
     //------------------- END PUBLIC METHODS ----------------------
 }());

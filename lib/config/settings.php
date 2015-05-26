@@ -5,17 +5,17 @@
  */
 return array(
     'status' => array(
-        'title'        => 'Статус плагина',
+        'title'        => _wp('Status'),
         'value'        => 'off',
         'control_type' => waHtmlControl::SELECT,
         'options'      => array(
-            'off' => 'Выключен',
-            'on'  => 'Включен',
+            'off' => _wp('Off'),
+            'on'  => _wp('On'),
         ),
     ),
     'theme' => array(
-        'title'        => 'Шаблон плагина',
-        'description'  => 'Какой шаблон из стандарных тем оформления Nivo slider будет использоваться.',
+        'title'        => _wp('Plugin theme'),
+        'description'  => _wp('Select plugin theme from standard Nivo slider themes.'),
         'value'        => 'default',
         'control_type' => waHtmlControl::SELECT,
         'options'      => array(
@@ -26,8 +26,8 @@ return array(
         ),
     ),
     'effect' => array(
-        'title'        => 'Эффект анимации',
-        'description'  => 'Выберите анимацию nivo slider.',
+        'title'        => _wp('Animation effect'),
+        'description'  => _wp('Select the nivo slider animation.'),
         'value'        => 'random',
         'control_type' => waHtmlControl::SELECT,
         'options'      => array(
@@ -43,8 +43,8 @@ return array(
         ),
     ),
     'width' => array(
-        'title'        => 'Ширина (px)',
-        'description'  => 'Ширина, формируемая при загрузке изображений.',
+        'title'        => _wp('Width (px)'),
+        'description'  => _wp('Width of the uploaded images.'),
         'placeholder'  => '480',
         'value'        => '480',
         'control_type' => waHtmlControl::CUSTOM.' '.'shopYosliPlugin::settingNumberControl',
@@ -54,8 +54,8 @@ return array(
         ),
     ),
     'height' => array(
-        'title'        => 'Высота (px)',
-        'description'  => 'Высота, формируемая при загрузке изображений.',
+        'title'        => _wp('Height (px)'),
+        'description'  => _wp('Height of the uploaded images.'),
         'placeholder'  => '300',
         'value'        => '300',
         'control_type' => waHtmlControl::CUSTOM.' '.'shopYosliPlugin::settingNumberControl',
@@ -65,7 +65,7 @@ return array(
         ),
     ),
     'speed' => array(
-        'title'        => 'Скорость анимации (msec)',
+        'title'        => _wp('Animation speed (msec)'),
         'placeholder'  => '1000',
         'value'        => '1000',
         'control_type' => waHtmlControl::CUSTOM.' '.'shopYosliPlugin::settingNumberControl',
@@ -75,7 +75,7 @@ return array(
         ),
     ),
     'pause_time' => array(
-        'title'        => 'Время паузы (msec)',
+        'title'        => _wp('Pause time (msec)'),
         'placeholder'  => '6000',
         'value'        => '6000',
         'control_type' => waHtmlControl::CUSTOM.' '.'shopYosliPlugin::settingNumberControl',
@@ -85,39 +85,39 @@ return array(
         ),
     ),
     'direction_nav' => array(
-        'title'        => 'Отображение кнопок «вперед» и «назад»',
+        'title'        => _wp('Displays the buttons «forward» and «backward»'),
         'value'        => 'false',
         'control_type' => waHtmlControl::SELECT,
         'options'      => array(
-            'false' => 'Выключен',
-            'true'  => 'Включен',
+            'false' => _wp('Off'),
+            'true'  => _wp('On'),
         ),
     ),
     'control_nav' => array(
-        'title'        => 'Отображение навигации',
+        'title'        => _wp('Navigation mapping'),
         'value'        => 'true',
         'control_type' => waHtmlControl::SELECT,
         'options'      => array(
-            'false' => 'Выключен',
-            'true'  => 'Включен',
+            'false' => _wp('Off'),
+            'true'  => _wp('On'),
         ),
     ),
     'pause_on_hover' => array(
-        'title'        => 'Остановка анимации при наведении',
+        'title'        => _wp('Stop animation while hovering'),
         'value'        => 'true',
         'control_type' => waHtmlControl::SELECT,
         'options'      => array(
-            'false' => 'Выключен',
-            'true'  => 'Включен',
+            'false' => _wp('Off'),
+            'true'  => _wp('On'),
         ),
     ),
     'control_nav_thumbs' => array(
-        'title'        => 'Отображение миниатюр',
+        'title'        => _wp('Display thumbnails'),
         'value'        => 'false',
         'control_type' => waHtmlControl::SELECT,
         'options'      => array(
-            'false' => 'Выключен',
-            'true'  => 'Включен',
+            'false' => _wp('Off'),
+            'true'  => _wp('On'),
         ),
     ),
 );

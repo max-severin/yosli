@@ -6,8 +6,10 @@
 .yosli-edit-wrap.selected + li { border-top: 0 none; }
 
 #s-content h1 { width: 420px; word-wrap: break-word; }
+#s-content.loading { background: url("/wa-apps/shop/plugins/yosli/img/loading-blue.gif") no-repeat scroll  240px 45px #fff; height: 60px; }
 #s-sidebar { border-right: 1px solid rgba(0, 0, 0, 0.1); margin-right: 20px; margin-top: 0px; padding-bottom: 60px; padding-right: 10px; padding-top: 0px; position: relative; }
 #s-sidebar .block { border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+#yosli-file-frame, #yosli-file-form { display: none; }
 #yosli-form { min-height: 400px; }
 #yosli-create { float: right; }
 #yosli-delete { display: block; float: right; height: 12px; line-height: 12px; margin: 5px 40px 0 0; padding: 4px 0; }

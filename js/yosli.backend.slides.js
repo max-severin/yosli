@@ -5,7 +5,7 @@
 
 /*global $, yosliBackendSlides */
 
-var yosliBackendSlides = (function () { "use strict";
+var yosliBackendSlides = (function () { 'use strict';
     //---------------- BEGIN MODULE SCOPE VARIABLES ---------------
     var
         makeYosliForm, makeYosliInput, makeYosliDiv, makeYosliFieldBlock, uploadTmpimage,
@@ -15,117 +15,118 @@ var yosliBackendSlides = (function () { "use strict";
 
     //--------------------- BEGIN DOM METHODS ---------------------
     makeYosliForm = function (slide, url, h1Header) {
-        var wrapper = makeYosliDiv("fields form");
+        var
+            wrapper, header, fileFrame, fileForm, fileInput, form, id, title, link, oldFile, uploadIcon, file, submit, image, titleBlock, linkBlock, fileBlock, submitBlock, deleteIcon, deleteHandler, sbmBtn;
 
-        var header = document.createElement("h1");
-        header.innerHTML = h1Header;
+        wrapper = makeYosliDiv('fields form');
 
-        var form = document.createElement("form");
-        form.setAttribute("id", "yosli-form");
-        form.setAttribute("method", "post");
-        form.setAttribute("enctype", "multipart/form-data");
-        form.setAttribute("action", url);
+        header = $('<h1 />');
+        header.html( h1Header );
 
-        var id = makeYosliInput("hidden", "id", slide.id);
-        var title = makeYosliInput("text", "title", slide.title);
-        var link = makeYosliInput("text", "link", slide.link);
-        var old_file = makeYosliInput("hidden", "old_filename", slide.filename);
-        var file = makeYosliInput("file", "filename", "");
-        var submit = makeYosliInput("submit", "", "{_wp('Save')}");
-        submit.setAttribute("class", "button green");
-        submit.setAttribute("id", "sbmBtn");
+        fileFrame = $('<iframe />');
+        fileFrame.attr( { 'id': 'yosli-file-frame', 'name': 'yosli-file-frame', 'width': '1', 'height': '1' } );
+
+        fileForm = $('<form />');
+        fileForm.attr( { 'id': 'yosli-file-form', 'target': 'yosli-file-frame', 'method': 'post', 'enctype': 'multipart/form-data', 'action': '?plugin=yosli&action=tmpimage' } );
+
+        fileInput = makeYosliInput('file', 'filename', '');
+        fileForm.html(fileInput);
+
+        form = $('<form />');
+        form.attr( { 'id': 'yosli-form', 'method': 'post', 'enctype': 'multipart/form-data', 'action': url } );
+
+        id         = makeYosliInput('hidden', 'id', slide.id);
+        title      = makeYosliInput('text', 'title', slide.title);
+        link       = makeYosliInput('text', 'link', slide.link);
+        oldFile    = makeYosliInput('hidden', 'old_filename', slide.filename);
+        uploadIcon = $('<i />').attr('class', 'icon16 upload');
+        file       = $('<a />').attr( { 'href': '#', 'id': 'file-upload-link' } ).append(uploadIcon, 'Загрузить');
+        submit     = makeYosliInput('submit', '', '{_wp("Save")}');
+        submit.attr('class', 'button green').attr('id', 'sbmBtn');
 
         if (slide.filename) {
-            var image = document.createElement("img");
-            image.setAttribute("src", "{$wa_url}wa-data/public/shop/yosli/"+slide.filename);
-            image.setAttribute("class", "edit-image");
+            image = $('<img />');
+            image.attr( { 'src': '{$wa_url}wa-data/public/shop/yosli/'+slide.filename, 'class': 'edit-image' } );
         }
 
-        var titleBlock = makeYosliFieldBlock("{_wp('Title')}", title);
-        var linkBlock = makeYosliFieldBlock("{_wp('Link')}", link);
-        var fileBlock = makeYosliFieldBlock("{_wp('Image')}", file);
-        var submitBlock = makeYosliFieldBlock("", submit);
+        titleBlock  = makeYosliFieldBlock('{_wp("Title")}', title);
+        linkBlock   = makeYosliFieldBlock('{_wp("Link")}', link);
+        fileBlock   = makeYosliFieldBlock('{_wp("Image")}', file);
+        submitBlock = makeYosliFieldBlock('', submit);
 
-        form.appendChild(id);
-        form.appendChild(old_file);
         if (image) {
-            form.appendChild(image);
+            form.append(image);
         }
-        form.appendChild(titleBlock);
-        form.appendChild(linkBlock);
-        form.appendChild(fileBlock);
-        form.appendChild(submitBlock);
+        form.append(id, oldFile, titleBlock, linkBlock, fileBlock, submitBlock);
 
-        wrapper.appendChild(header);
-        wrapper.appendChild(form);
+        wrapper.append(header, fileFrame, fileForm, form);
 
         if (slide.id) {
-            var deleteIcon = document.createElement("i");
-            deleteIcon.setAttribute("class", "icon16 delete");
+            deleteIcon = $('<i />');
+            deleteIcon.attr('class', 'icon16 delete');
             
-            var deleteHandler = document.createElement("a");
-            deleteHandler.setAttribute("href", "#");
-            deleteHandler.setAttribute("id", "yosli-delete");
-            deleteHandler.innerHTML = "{_wp('Delete')}";
-            deleteHandler.insertBefore(deleteIcon, deleteHandler.firstChild);
-            var sbmBtn = submitBlock.children[1];
-            sbmBtn.insertBefore(deleteHandler, sbmBtn.firstChild);
+            deleteHandler = $('<a />');
+            deleteHandler.attr( { 'href': '#', 'id': 'yosli-delete' } ).html('{_wp("Delete")}').prepend(deleteIcon);
+
+            sbmBtn = submitBlock.find('.value');
+            sbmBtn.prepend(deleteHandler);
         }
 
         return wrapper;
     };
 
     makeYosliInput = function (type, name, value) {
-        var input = document.createElement("input");
+        var input = $('<input />');
         
-        input.type = type;
-        input.name = name;
-        input.value = value;
+        input.attr( { 'type': type, 'name': name } ).val(value);
 
         return input;
     };
 
     makeYosliDiv = function (className) {
-        var div = document.createElement("div");
-        div.setAttribute("class", className);
+        var div = $('<div />');
+
+        div.attr('class', className);
 
         return div;
     };
 
     makeYosliFieldBlock = function (name, value) {
-        var wrapper = makeYosliDiv("field");
-        var nameDiv = makeYosliDiv("name");
-        var valueDiv = makeYosliDiv("value");
+        var divWrap = makeYosliDiv('field');
+        var divName = makeYosliDiv('name');
+        var divValue = makeYosliDiv('value');
 
-        nameDiv.innerHTML = name;
-        valueDiv.appendChild(value);
+        divName.html( name );
+        divValue.append( value );
 
-        wrapper.appendChild(nameDiv);
-        wrapper.appendChild(valueDiv);
+        divWrap.append(divName, divValue);
 
-        return wrapper;
+        return divWrap;
     };
+
     uploadTmpimage = function () {
 
-        var t = $('iframe.wall-photo-iframe');
-        var url = t.contents().find("body").html();
+        var t = $('iframe#yosli-file-frame');
+        var url = t.contents().find('body').html();
         
         var filename = '';
 
         if (url.substr(0, 6) == 'error:') {
             alert('Error uploading image: ' + url.substr(6));
-            // Reset the file upload selector
             $('.imageform')[0].reset();
             return;
         }
 
         var urlArray = url.split('/');
 
-        var image = $("<img />");
-        image.attr("src", url.replace(/&amp;/g, '&'));
-        image.attr("class", "edit-image");
+        var image = $('<img />');
+        image.attr('src', url.replace(/&amp;/g, '&'));
+        image.attr('class', 'edit-image');
 
-        $('body').find('#yosli-form').prepend(image);
+        $('#yosli-form .edit-image').remove();
+        $('#yosli-form').prepend(image);
+
+        $('#file-upload-link i').removeClass('loading').addClass('icon16, upload');
     
         return false;
     }
@@ -133,18 +134,21 @@ var yosliBackendSlides = (function () { "use strict";
 
     //------------------- BEGIN EVENT HANDLERS --------------------
     onFormSubmit = function (event) {
-        var t = $(this);
-        var titleInput = t.find("input[name='title']");
-        var fileInput = t.find("input[name='filename']");
-        var oldFileInput = t.find("input[name='old_filename']");
-        var idInput = t.find("input[name='id']");            
+        var 
+            t, titleInput, fileInput, oldFileInput, idInput, errorBlock;
 
-        t.closest(".fields").find(".errormsg").remove();
+        t = $(this);
+        titleInput   = t.find('input[name="title"]');
+        fileInput    = t.find('input[name="filename"]');
+        oldFileInput = t.find('input[name="old_filename"]');
+        idInput      = t.find('input[name="id"]');            
+
+        t.closest('.fields').find('.errormsg').remove();
 
         if ( titleInput.val().length === 0 ) {
-            if ( t.closest(".fields").find(".errormsg").length == 0 ) {
-                var errorBlock = makeYosliDiv("errormsg");
-                errorBlock.innerHTML = "{_wp('Fill in the title field')}";
+            if ( t.closest('.fields').find('.errormsg').length == 0 ) {
+                errorBlock = makeYosliDiv('errormsg');
+                errorBlock.html('{_wp("Fill in the title field")}');
                 t.before(errorBlock);
 
                 titleInput.focus();
@@ -152,9 +156,9 @@ var yosliBackendSlides = (function () { "use strict";
 
             return false;
         } else if ( oldFileInput.val().length === 0 && fileInput.val().length === 0 ) {
-            if ( t.closest(".fields").find(".errormsg").length == 0 ) {
-                var errorBlock = makeYosliDiv("errormsg");
-                errorBlock.innerHTML = "{_wp('Download image')}";
+            if ( t.closest('.fields').find('.errormsg').length == 0 ) {
+                errorBlock = makeYosliDiv('errormsg');
+                errorBlock.html('{_wp("Download image")}');
                 t.before(errorBlock);
             }
 
@@ -163,25 +167,27 @@ var yosliBackendSlides = (function () { "use strict";
     };
 
     onDeleteHandler = function (event) {
-        if(confirm("{_wp('Delete?')}")) {
+        if(confirm('{_wp("Delete?")}')) {
 
             event.preventDefault();
 
-            var form = $(this).closest("#yosli-form");
-            var id = form.find("input[name='id']").val();
-            var oldFilename = form.find("input[name='old_filename']").val();
+            var form        = $(this).closest('#yosli-form');
+            var id          = form.find('input[name="id"]').val();
+            var oldFilename = form.find('input[name="old_filename"]').val();
+
+            $('#s-content').empty().addClass('loading');
 
             if (id) {
                 $.get('?plugin=yosli&action=delete&id='+id+'&old_filename='+oldFilename, function (response) {
                     if (response.data === true) {
-                        $("#s-content").html('<div class="block double-padded align-right gray"><strong>{_wp("The image is removed.")}</strong></div>');
+                        $('#s-content').removeClass('loading').html('<div class="block double-padded align-right gray"><strong>{_wp("The image is removed.")}</strong></div>');
 
-                        $("input.slide-id[value='"+id+"']").closest("li").hide(600, function() {
-                            $(this).show("normal");
+                        $('input.slide-id[value="'+id+'"]').closest('li').hide(600, function() {
+                            $(this).show('normal');
                             $(this).remove();
                         });
                     }
-                }, "json");
+                }, 'json');
             }
 
         }
@@ -191,17 +197,21 @@ var yosliBackendSlides = (function () { "use strict";
         event.preventDefault();
 
         var slide = { title: '', link: '', filename: '' };
-        var url = "?plugin=yosli&action=create";
-        var form = makeYosliForm(slide, url, "{_wp('To create a slide')}");
+        var url   = '?plugin=yosli&action=create';
+        var form  = makeYosliForm(slide, url, '{_wp("To create a slide")}');
+
+        $('#s-content').empty().addClass('loading');
 
         $('.yosli-edit-wrap').removeClass('selected');
 
-        $("#s-content").html(form);
+        $('#s-content').removeClass('loading').html(form);
     };
 
     onEditHandler = function (event) {
-        var t = $(this);
-        var id = t.find(".slide-id").val();
+        var t  = $(this);
+        var id = t.find('.slide-id').val();
+
+        $('#s-content').empty().addClass('loading');
 
         $('.yosli-edit-wrap').removeClass('selected');
         t.closest('li').addClass('selected');
@@ -209,30 +219,35 @@ var yosliBackendSlides = (function () { "use strict";
         $.get('?plugin=yosli&action=read&id='+id, function (result) {
             if (result) {
                 var slide = result.data;
-                var url = "?plugin=yosli&action=update";
-                var form = makeYosliForm(slide, url, "{_wp('To edit the slide')} "+slide.title);
-                $("#s-content").html(form);
+                var url   = '?plugin=yosli&action=update';
+                var form  = makeYosliForm(slide, url, '{_wp("To edit the slide")} '+slide.title);
+                $('#s-content').removeClass('loading').html(form);
             }
-        }, "json");
+        }, 'json');
     };
 
     onFileChange = function (event) {
-        // add loading gif
-        $(this).closest('.value').find('.imageform').submit();
+        $('#file-upload-link i').removeClass('icon16, upload').addClass('loading');
+        
+        $('#yosli-file-form').submit();
     };
     //------------------- END EVENT HANDLERS ----------------------
 
     //------------------- BEGIN PUBLIC METHODS --------------------
     initModule = function () {
-        $(document).on('submit', "#yosli-form", onFormSubmit);
+        $(document).on('submit', '#yosli-form', onFormSubmit);
 
-        $(document).on('click', "#yosli-delete", onDeleteHandler);
+        $(document).on('click', '#yosli-delete', onDeleteHandler);
 
-        $(document).on('click', "#yosli-create", onCreateHandler);
+        $(document).on('click', '#yosli-create', onCreateHandler);
 
-        $(document).on('click', ".yosli-edit", onEditHandler);
+        $(document).on('click', '.yosli-edit', onEditHandler);
 
-        $(document).on('change', "input[name='filename']", onFileChange);
+        $(document).on('change', '#yosli-file-form input[name="filename"]', onFileChange);
+
+        $(document).on('click', '#file-upload-link', function() {
+            $('#yosli-file-form input[name="filename"]').trigger('click');
+        });
     };
 
     return {

@@ -27,23 +27,23 @@ msgstr "Для вывода слайдера во фронтенде магаз�
 msgid "Not yet added any images."
 msgstr "Пока что не добавлено ни одного изображения."
 
-#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:153
-msgid "The image is removed."
-msgstr "Изображение удалено."
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:43
+msgid "Upload"
+msgstr "Загрузить"
 
-#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:34
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:44
 msgid "Save"
 msgstr "Сохранить"
 
-#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:44
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:52
 msgid "Title"
 msgstr "Заголовок"
 
-#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:45
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:53
 msgid "Link"
 msgstr "Ссылка"
 
-#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:46
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:54
 msgid "Image"
 msgstr "Изображение"
 
@@ -51,23 +51,27 @@ msgstr "Изображение"
 msgid "Delete"
 msgstr "Удалить"
 
-#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:123
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:151
 msgid "Fill in the title field"
 msgstr "Заполните, пожалуйста, поле «Заголовок»"
 
-#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:133
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:161
 msgid "Download image"
 msgstr "Загрузите, пожалуйста, изображение"
 
-#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:142
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:170
 msgid "Delete?"
 msgstr "Удалить?"
 
-#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:171
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:183
+msgid "The image is removed."
+msgstr "Изображение удалено."
+
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:201
 msgid "To create a slide"
 msgstr "Создать слайд"
 
-#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:189
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:223
 msgid "To edit the slide"
 msgstr "Редактировать слайд"
 

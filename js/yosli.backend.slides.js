@@ -40,7 +40,7 @@ var yosliBackendSlides = (function () { 'use strict';
         link       = makeYosliInput('text', 'link', slide.link);
         oldFile    = makeYosliInput('hidden', 'old_filename', slide.filename);
         uploadIcon = $('<i />').attr('class', 'icon16 upload');
-        file       = $('<a />').attr( { 'href': '#', 'id': 'file-upload-link' } ).append(uploadIcon, 'Загрузить');
+        file       = $('<a />').attr( { 'href': '#', 'id': 'file-upload-link' } ).append(uploadIcon, '{_wp("Upload")}');
         submit     = makeYosliInput('submit', '', '{_wp("Save")}');
         submit.attr('class', 'button green').attr('id', 'sbmBtn');
 

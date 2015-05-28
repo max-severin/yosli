@@ -20,16 +20,10 @@ class shopYosliPluginBackendActions extends waViewActions {
         
             $model = new shopYosliPluginSlidesModel();
 
-            if ( file_exists($file = waRequest::file('filename')) ) {                
-                $filename = $this->saveFile($file);
-            } else {
-                $filename = '';
-            }
-
             $data = array(
                 'title' => waRequest::post('title', '', 'String'),  
                 'link' => waRequest::post('link', '', 'String'),          
-                'filename' => $filename,
+                'filename' => $this->saveFile(),
                 'create_datetime' => date('Y-m-d H:i:s'),
             );
 
@@ -45,13 +39,10 @@ class shopYosliPluginBackendActions extends waViewActions {
         
             $model = new shopYosliPluginSlidesModel();
                                 
-            $old_filename = waRequest::post('old_filename', '', 'String');                       
-            $file = waRequest::file('filename'); 
+            $old_filename = waRequest::post('old_filename', '', 'String'); 
+            $is_new_filename = waRequest::post('is_new_filename', '', 'Int');
 
-            $filename = $old_filename; 
-            if ( file_exists($file) ) {
-                $filename = $this->saveFile($file, $old_filename);                
-            }
+            ($is_new_filename) ? $filename = $this->saveFile($old_filename) : $filename = $old_filename;
 
             $id = waRequest::post('id', 0, 'int');
 
@@ -69,7 +60,7 @@ class shopYosliPluginBackendActions extends waViewActions {
     }
 
     public function tmpimageAction() {
-        $id = (int)waRequest::request('id');
+        $id = $this->getId();
         $file = waRequest::file('filename');
 
         if (!$file->uploaded()) {
@@ -92,22 +83,22 @@ class shopYosliPluginBackendActions extends waViewActions {
         ($settings['width']) ? $width = $settings['width'] : $width = 800;
 
         $temp_dir  = wa()->getTempPath("yosli", 'shop');
-        $fname = uniqid($id.'_').'.jpg';
+        $fname = uniqid($id.'_').'.png';
         $img->resize($width, $height, waImage::NONE)->save($temp_dir.'/'.$fname, 90);
 
-        $photoEditors = $this->getStorage()->read('photoEditors');
-        if (!$photoEditors) {
-            $photoEditors = array();
+        $yosliSlides = $this->getStorage()->read('yosliSlides');
+        if (!$yosliSlides) {
+            $yosliSlides = array();
         }
 
-        if (isset($photoEditors[$id]) && file_exists($photoEditors[$id])) {
-            if (!unlink($photoEditors[$id])) {
-                throw new waException('Unable to delete photo temp file: '+$photoEditors[$id]);
+        if (isset($yosliSlides[$id]) && file_exists($yosliSlides[$id])) {
+            if (!unlink($yosliSlides[$id])) {
+                throw new waException('Unable to delete photo temp file: '+$yosliSlides[$id]);
             }
         }
-        $photoEditors[$id] = $temp_dir.'/'.$fname;
+        $yosliSlides[$id] = $temp_dir.'/'.$fname;
 
-        $this->getStorage()->write('photoEditors', $photoEditors);
+        $this->getStorage()->write('yosliSlides', $yosliSlides);
 
         $temp_file_url = $this->getPreviewUrl($fname);
 
@@ -127,27 +118,32 @@ class shopYosliPluginBackendActions extends waViewActions {
         waFiles::readFile($file);
     }
 
-    protected function saveFile($file, $old_file = false) {
-        $app_settings_model = new waAppSettingsModel();
-        $settings = $app_settings_model->get(array('shop', 'yosli'));
-
-        ($settings['height']) ? $height = $settings['height'] : $height = 800;
-        ($settings['width']) ? $width = $settings['width'] : $width = 800;
+    protected function saveFile($old_file = false) {
+        $id = $this->getId();
 
         $rand = mt_rand();
         $name = "$rand.original.png";
-        $filename = wa()->getDataPath("yosli", TRUE, 'shop'); 
+        $filename = wa()->getDataPath("yosli", TRUE, 'shop') . '/' . $name;
 
-        waFiles::move($file, $filename);   
+        $yosliSlides = $this->getStorage()->read('yosliSlides');
 
-        try {
-            $img = waImage::factory($filename);
-        } catch(Exception $e) {
-            $errors = 'File is not an image ('.$e->getMessage().').';
+        if (!isset($yosliSlides[$id]) || !file_exists($yosliSlides[$id])) {
             return;
         }
-        
-        $img->resize($width, $height, waImage::NONE)->save($filename, 90);
+
+        $newFile = $yosliSlides[$id];
+
+        try {
+            $img = waImage::factory($newFile)
+                ->save($filename);
+        } catch (Exception $e) {
+            $this->sendResponse( 'error: Unable to save new file '.$filename.' ('.pathinfo($filename, PATHINFO_EXTENSION).'): '.$e->getMessage() );
+            return;
+        }
+
+        unset($yosliSlides[$id]);
+        $this->getStorage()->write('yosliSlides', $yosliSlides);
+        unlink($newFile);
 
         if ($old_file) {
             waFiles::delete(wa()->getDataPath("yosli/{$old_file}", TRUE, 'shop'));
@@ -165,6 +161,10 @@ class shopYosliPluginBackendActions extends waViewActions {
 
     protected function getPreviewUrl ($file) {
         return $this->getConfig()->getBackendUrl(true).'shop/?plugin=yosli&action=data&temp=1&path=yosli/'.$file;
+    }
+
+    protected function getId() {
+        return wa()->getUser()->getId();
     }
 
 }

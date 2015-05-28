@@ -16,7 +16,7 @@ var yosliBackendSlides = (function () { 'use strict';
     //--------------------- BEGIN DOM METHODS ---------------------
     makeYosliForm = function (slide, url, h1Header) {
         var
-            wrapper, header, fileFrame, fileForm, fileInput, form, id, title, link, oldFile, uploadIcon, file, submit, image, titleBlock, linkBlock, fileBlock, submitBlock, deleteIcon, deleteHandler, sbmBtn;
+            wrapper, header, fileFrame, fileForm, fileInput, form, id, title, link, oldFile, newFile, uploadIcon, file, submit, image, titleBlock, linkBlock, fileBlock, submitBlock, deleteIcon, deleteHandler, sbmBtn;
 
         wrapper = makeYosliDiv('fields form');
 
@@ -39,6 +39,7 @@ var yosliBackendSlides = (function () { 'use strict';
         title      = makeYosliInput('text', 'title', slide.title);
         link       = makeYosliInput('text', 'link', slide.link);
         oldFile    = makeYosliInput('hidden', 'old_filename', slide.filename);
+        newFile    = makeYosliInput('hidden', 'is_new_filename', '');
         uploadIcon = $('<i />').attr('class', 'icon16 upload');
         file       = $('<a />').attr( { 'href': '#', 'id': 'file-upload-link' } ).append(uploadIcon, '{_wp("Upload")}');
         submit     = makeYosliInput('submit', '', '{_wp("Save")}');
@@ -57,7 +58,7 @@ var yosliBackendSlides = (function () { 'use strict';
         if (image) {
             form.append(image);
         }
-        form.append(id, oldFile, titleBlock, linkBlock, fileBlock, submitBlock);
+        form.append(id, oldFile, newFile, titleBlock, linkBlock, fileBlock, submitBlock);
 
         wrapper.append(header, fileFrame, fileForm, form);
 
@@ -127,6 +128,8 @@ var yosliBackendSlides = (function () { 'use strict';
         $('#yosli-form').prepend(image);
 
         $('#file-upload-link i').removeClass('loading').addClass('icon16, upload');
+
+        $('input[name="is_new_filename"]').val('1');
     
         return false;
     }
@@ -139,7 +142,7 @@ var yosliBackendSlides = (function () { 'use strict';
 
         t = $(this);
         titleInput   = t.find('input[name="title"]');
-        fileInput    = t.find('input[name="filename"]');
+        fileInput    = t.find('input[name="is_new_filename"]');
         oldFileInput = t.find('input[name="old_filename"]');
         idInput      = t.find('input[name="id"]');            
 

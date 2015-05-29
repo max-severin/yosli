@@ -112,9 +112,16 @@ var yosliBackendSlides = (function () { 'use strict';
         
         var filename = '';
 
+        t.closest('.fields').find('.errormsg').remove();
+
         if (url.substr(0, 6) == 'error:') {
+            var errorBlock = makeYosliDiv('errormsg');
+
             $('#file-upload-link i').removeClass('loading').addClass('icon16, upload');
-            alert('Error uploading image: ' + url.substr(6));
+
+            errorBlock.html('Error uploading image: ' + url.substr(6));            
+            t.after(errorBlock);
+
             $('.imageform')[0].reset();
             return;
         }

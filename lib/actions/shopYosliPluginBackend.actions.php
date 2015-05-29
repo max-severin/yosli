@@ -76,7 +76,6 @@ class shopYosliPluginBackendActions extends waViewActions {
         try {
             $img = $file->waImage();
         } catch(Exception $e) {
-            // Nope... it's not an image.
              $this->sendResponse('error:File is not an image ('.$e->getMessage().').');
             return;
         }

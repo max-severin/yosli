@@ -12,6 +12,9 @@ class shopYosliPluginBackendReadController extends waJsonController {
         $model = new shopYosliPluginSlidesModel();
         $slide = $model->getById($id);
 
+        $slide['title'] = addslashes(htmlspecialchars($slide['title']));
+        $slide['link'] = addslashes(htmlspecialchars($slide['link']));
+
         $this->response = $slide;
     }
 

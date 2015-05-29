@@ -9,6 +9,11 @@ class shopYosliPluginBackendActions extends waViewActions {
     public function defaultAction() {
         $model = new shopYosliPluginSlidesModel();
         $slides = $model->order('id DESC')->fetchAll();
+
+        foreach ($slides as $id => $slide) {
+            $slides[$id]['title'] = addslashes(htmlspecialchars($slide['title']));
+            $slides[$id]['link'] = addslashes(htmlspecialchars($slide['link']));
+        }
         
         $this->view->assign('slides', $slides);
 

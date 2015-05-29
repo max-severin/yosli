@@ -113,6 +113,7 @@ var yosliBackendSlides = (function () { 'use strict';
         var filename = '';
 
         if (url.substr(0, 6) == 'error:') {
+            $('#file-upload-link i').removeClass('loading').addClass('icon16, upload');
             alert('Error uploading image: ' + url.substr(6));
             $('.imageform')[0].reset();
             return;

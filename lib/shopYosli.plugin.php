@@ -37,11 +37,10 @@ class shopYosliPlugin extends shopPlugin {
         if ($settings['status'] === 'on') {
 
             $model = new shopYosliPluginSlidesModel();
-            $slides = $model->order('id DESC')->fetchAll();
             
             $view = wa()->getView(); 
             $view->assign('settings', $settings);
-            $view->assign('slides', $slides);
+            $view->assign('slides', $model->getSlides());
 
             $html = $view->fetch(realpath(dirname(__FILE__)."/../").'/templates/Frontend.html');
             

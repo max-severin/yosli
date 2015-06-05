@@ -114,8 +114,8 @@ msgid "Animation effect"
 msgstr "Эффект анимации"
 
 #: /wa-apps/shop/plugins/yosli/lib/config/settings.php:30
-msgid "Select the nivo slider animation."
-msgstr "Выберите анимацию nivo slider."
+msgid "Select the Nivo slider animation."
+msgstr "Выберите анимацию Nivo slider."
 
 #: /wa-apps/shop/plugins/yosli/lib/config/settings.php:46
 msgid "Width (px)"

@@ -27,7 +27,7 @@ return array(
     ),
     'effect' => array(
         'title'        => _wp('Animation effect'),
-        'description'  => _wp('Select the nivo slider animation.'),
+        'description'  => _wp('Select the Nivo slider animation.'),
         'value'        => 'random',
         'control_type' => waHtmlControl::SELECT,
         'options'      => array(

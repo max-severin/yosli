@@ -156,3 +156,7 @@ msgstr ""
 msgid "Display thumbnails"
 msgstr ""
 
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:57
+msgid "Sort"
+msgstr ""
+

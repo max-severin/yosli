@@ -20,9 +20,10 @@ class shopYosliPluginBackendActions extends waViewActions {
             $model = new shopYosliPluginSlidesModel();
 
             $data = array(
-                'title' => waRequest::post('title', '', 'String'),  
-                'link' => waRequest::post('link', '', 'String'),          
-                'filename' => $this->saveFile(),
+                'title'           => waRequest::post('title', '', 'String'),          
+                'filename'        => $this->saveFile(),
+                'link'            => waRequest::post('link', '', 'String'),  
+                'sort'            => waRequest::post('sort', '', 'Int'),  
                 'create_datetime' => date('Y-m-d H:i:s'),
             );
 
@@ -46,9 +47,10 @@ class shopYosliPluginBackendActions extends waViewActions {
             $id = waRequest::post('id', 0, 'int');
 
             $data = array(
-                'title' => waRequest::post('title', '', 'String'),  
-                'link' => waRequest::post('link', '', 'String'),          
+                'title'    => waRequest::post('title', '', 'String'),      
                 'filename' => $filename,
+                'link'     => waRequest::post('link', '', 'String'),      
+                'sort'     => waRequest::post('sort', '', 'Int'),      
             );
 
             $model->updateById($id, $data);

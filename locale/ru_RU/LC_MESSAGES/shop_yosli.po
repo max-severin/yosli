@@ -157,3 +157,7 @@ msgstr "Остановка анимации при наведении"
 msgid "Display thumbnails"
 msgstr "Отображение миниатюр"
 
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:57
+msgid "Sort"
+msgstr "Сортировка"
+

@@ -4,7 +4,7 @@
 Image slider plugin for Webasyst Shop-Script
 
 ## Features
-The plugin allows you to create slider of images. To the image, you can snap the link and the title.
+The plugin allows you to create slider of images. To the image, you can snap the link and the title. It is also possible to change the sort order of the slides.
 
 Plugin uses the jQuery Nivo Slider plugin - https://github.com/gilbitron/Nivo-Slider.
 

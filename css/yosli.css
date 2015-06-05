@@ -1,4 +1,5 @@
 .bottom15px { margin-bottom: 15px!important; }
+.right30percent { float: right; width: 30%; }
 .slide-image { border-radius: 50%; display: block; float: right; height: 60px; }
 .slide-title { display: block; height: 60px; line-height: 60px; overflow: hidden; width: 100px; }
 .edit-image { border: 1px dotted #eee; border-bottom-right-radius: 100px; box-shadow: -1px 0 3px rgba(0, 0, 0, 0.1); margin: -17px 0 0 500px; position: absolute; width: 400px; }
@@ -13,3 +14,13 @@
 #yosli-form { min-height: 400px; }
 #yosli-create { float: right; }
 #yosli-delete { display: block; float: right; height: 12px; line-height: 12px; margin: 5px 40px 0 0; padding: 4px 0; }
+
+@media screen and (max-width: 1200px) {
+	.edit-image { margin: 0 0 15px; position: relative;	}
+}
+
+@media screen and (max-width: 1024px) {
+	.yosli-edit-wrap a { text-align: center; }
+	.slide-image { display: inline; float: none; height: 40px; }
+	.slide-title { height: 20px; line-height: 15px; width: 100%; }
+}

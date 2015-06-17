@@ -5,10 +5,10 @@
     <script src="{$wa_url}wa-apps/shop/plugins/yosli/util/nivoslider/jquery.nivo.slider.js" type="text/javascript"> </script>
 	    
     <div class="slider-wrapper theme-{$settings.theme}">
-        <div id="slider" class="nivoSlider">
+        <div id="yosli-slider" class="nivoSlider">
             {section name=i loop=$slides}
                 {if $slides[i].link}<a href="{$slides[i].link}">{/if} 
-                    <img src="/wa-data/public/shop/yosli/{$slides[i].filename}" data-thumb="/wa-data/public/shop/yosli/{$slides[i].filename}" alt="{$slides[i].title}" title="{$slides[i].title}" /> 
+                    <img src="{$wa_url}wa-data/public/shop/yosli/{$slides[i].filename}" data-thumb="{$wa_url}wa-data/public/shop/yosli/{$slides[i].filename}" alt="{$slides[i].title}" title="{$slides[i].title}" /> 
                 {if $slides[i].link}</a>{/if}
             {/section}
         </div>
@@ -17,7 +17,7 @@
     <script>
     $(window).load(function(){
 
-        $('#slider').nivoSlider({
+        $('#yosli-slider').nivoSlider({
             effect: "{$settings.effect}",  
             animSpeed: {$settings.speed}, 
             pauseTime: {$settings.pause_time}, 

@@ -1,7 +1,7 @@
 # yosli
 
 ## Description
-Image slider plugin for Webasyst Shop-Script
+Image slider plugin for Shop-Script 6
 
 ## Features
 The plugin allows you to create slider of images. To the image, you can snap the link and the title. It is also possible to change the sort order of the slides.

@@ -8,12 +8,16 @@
 var yosliBackendSlides = (function () { 'use strict';
     //---------------- BEGIN MODULE SCOPE VARIABLES ---------------
     var
-        makeYosliForm, makeYosliInput, makeYosliDiv, makeYosliFieldBlock, uploadTmpimage,
+        htmlCharsDecode, makeYosliForm, makeYosliInput, makeYosliDiv, makeYosliFieldBlock, uploadTmpimage,
         onFormSubmit, onDeleteHandler, onCreateHandler, onEditHandler, onFileChange,
         initModule;
     //----------------- END MODULE SCOPE VARIABLES ----------------
 
     //--------------------- BEGIN DOM METHODS ---------------------
+    htmlCharsDecode = function (val) {
+        return $('<div/>').html(val).text();
+    }
+    
     makeYosliForm = function (slide, url, h1Header) {
         var
             wrapper, header, fileFrame, fileForm, fileInput, form, id, oldFile, newFile, title, uploadIcon, file, link, sort, submit, image, titleBlock, fileBlock, linkBlock, sortBlock, submitBlock, deleteIcon, deleteHandler, sbmBtn;
@@ -81,7 +85,7 @@ var yosliBackendSlides = (function () { 'use strict';
     makeYosliInput = function (type, name, value) {
         var input = $('<input />');
         
-        input.attr( { 'type': type, 'name': name } ).val(value);
+        input.attr( { 'type': type, 'name': name } ).val( htmlCharsDecode(value) );
 
         return input;
     };

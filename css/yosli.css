@@ -16,7 +16,7 @@
 #yosli-delete { display: block; float: right; height: 12px; line-height: 12px; margin: 5px 40px 0 0; padding: 4px 0; }
 
 @media screen and (max-width: 1200px) {
-	.edit-image { margin: 0 0 15px; position: relative;	}
+	.edit-image { margin: 0 0 15px; position: relative; }
 }
 
 @media screen and (max-width: 1024px) {

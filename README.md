@@ -21,7 +21,8 @@ Plugin settings:
 
 ## Installing
 ### Auto
-...
+Install plugin from webasyst store: [Image slider -en](https://www.webasyst.com/store/plugin/shop/yosli/) or [Image slider -ru](https://www.webasyst.ru/store/plugin/shop/yosli/).  
+Or you can install plugin from Installer app in backend.
 
 ### Manual
 1. Get the code into your web server's folder /PATH_TO_WEBASYST/wa-apps/shop/plugins

@@ -160,3 +160,7 @@ msgstr ""
 msgid "Sort"
 msgstr ""
 
+#: /wa-apps/shop/plugins/yosli/lib/config/settings.php:17
+msgid "Open links in a new tab"
+msgstr ""
+

@@ -13,6 +13,15 @@ return array(
             'on'  => _wp('On'),
         ),
     ),
+    'status_target_blank' => array(
+        'title'        => _wp('Open links in a new tab'),
+        'value'        => 'off',
+        'control_type' => waHtmlControl::SELECT,
+        'options'      => array(
+            'off' => _wp('Off'),
+            'on'  => _wp('On'),
+        ),
+    ),
     'theme' => array(
         'title'        => _wp('Plugin theme'),
         'description'  => _wp('Select plugin theme from standard Nivo slider themes.'),

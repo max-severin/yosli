@@ -8,4 +8,23 @@
     })(jQuery);
 </script>
 
-{include file="../../../../../templates/actions/plugins/PluginsSettings.html"}
+<h1>[`Slider`]</h1>
+<div class="fields form">
+    <form action="?module=plugins&id=yosli&action=save" method="post" id="plugins-settings-form" enctype="multipart/form-data" target="plugins-settings-iframe">
+        {$wa->csrf()}
+        {foreach $settings_controls as $name => $control}
+        <div class="field">
+            {$control}
+        </div>
+        {/foreach}
+
+        <div class="field">
+            <div class="value submit">
+                <input type="submit" class="button green" value="{_w('Save')}">
+                <span id="plugins-settings-form-status" style="display:none"><!-- message placeholder --></span>
+            </div>
+        </div>
+
+    </form>
+    <iframe style="display:none" name="plugins-settings-iframe" id="plugins-settings-iframe"></iframe>
+</div>

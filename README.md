@@ -1,4 +1,8 @@
-# yosli
+# yosli - Image slider
+
+![yosli-frontend](https://www.webasyst.com/wa-data/public/updates/img/96/1496/4012/4012.970.png)
+
+![yosli-backend](https://www.webasyst.com/wa-data/public/updates/img/96/1496/4010/4010.970.png)
 
 ## Description
 Image slider plugin for Shop-Script 6

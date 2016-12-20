@@ -5,7 +5,7 @@
  */
 return array(
     'name' => /*_wp*/('Slider'),
-    'version' => '1.0.2',
+    'version' => '1.0.3',
     'img' => 'img/yosli.png',
     'vendor' => 1020720,
     'shop_settings' => true,
@@ -13,6 +13,5 @@ return array(
     'frontend' => true,
     'handlers' => array(
         'backend_menu' => 'backendMenu',
-        'frontend_head' => 'frontendHeader',
     )
 );

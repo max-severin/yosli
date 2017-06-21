@@ -33,8 +33,10 @@ var yosliBackendSlides = (function () { 'use strict';
         fileForm = $('<form />');
         fileForm.attr( { 'id': 'yosli-file-form', 'target': 'yosli-file-frame', 'method': 'post', 'enctype': 'multipart/form-data', 'action': '?plugin=yosli&action=tmpimage' } );
 
+        fileForm.append('{$wa->csrf()}');
+
         fileInput = makeYosliInput('file', 'filename', '');
-        fileForm.html(fileInput);
+        fileForm.append(fileInput);
 
         form = $('<form />');
         form.attr( { 'id': 'yosli-form', 'method': 'post', 'enctype': 'multipart/form-data', 'action': url } );
@@ -60,6 +62,8 @@ var yosliBackendSlides = (function () { 'use strict';
         linkBlock   = makeYosliFieldBlock('{_wp("Link")}', link);
         sortBlock   = makeYosliFieldBlock('{_wp("Sort")}', sort);
         submitBlock = makeYosliFieldBlock('', submit);
+
+        form.append('{$wa->csrf()}');
 
         if (image) {
             form.append(image);

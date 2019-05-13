@@ -20,7 +20,8 @@ class shopYosliPluginBackendActions extends waViewActions {
             $model = new shopYosliPluginSlidesModel();
 
             $data = array(
-                'title'           => waRequest::post('title', '', 'String'),          
+                'title'           => waRequest::post('title', '', 'String'),   
+                'alt'             => waRequest::post('alt', '', 'String'),        
                 'filename'        => $this->saveFile(),
                 'link'            => waRequest::post('link', '', 'String'),  
                 'sort'            => waRequest::post('sort', '', 'Int'),  
@@ -48,6 +49,7 @@ class shopYosliPluginBackendActions extends waViewActions {
 
             $data = array(
                 'title'    => waRequest::post('title', '', 'String'),      
+                'alt'      => waRequest::post('alt', '', 'String'),  
                 'filename' => $filename,
                 'link'     => waRequest::post('link', '', 'String'),      
                 'sort'     => waRequest::post('sort', '', 'Int'),      

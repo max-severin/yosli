@@ -2,6 +2,7 @@
 .right30percent { float: right; width: 30%; }
 .slide-image { border-radius: 50%; display: block; float: right; height: 60px; }
 .slide-title { display: block; height: 60px; line-height: 60px; overflow: hidden; width: 100px; }
+.slide-alt { display: block; height: 60px; line-height: 60px; overflow: hidden; width: 100px; }
 .edit-image { border: 1px dotted #eee; border-bottom-right-radius: 100px; box-shadow: -1px 0 3px rgba(0, 0, 0, 0.1); margin: -17px 0 0 500px; position: absolute; width: 400px; }
 .yosli-edit-wrap { border-bottom-left-radius: 45px; border-bottom-right-radius: 5px; border-top: 1px dotted #dedede; margin-bottom: 0 !important; overflow: hidden; }
 .yosli-edit-wrap.selected + li { border-top: 0 none; }
@@ -23,4 +24,5 @@
 	.yosli-edit-wrap a { text-align: center; }
 	.slide-image { display: inline; float: none; height: 40px; }
 	.slide-title { height: 20px; line-height: 15px; width: 100%; }
+	.slide-alt { height: 20px; line-height: 15px; width: 100%; }
 }

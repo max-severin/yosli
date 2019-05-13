@@ -20,7 +20,7 @@ var yosliBackendSlides = (function () { 'use strict';
     
     makeYosliForm = function (slide, url, h1Header) {
         var
-            wrapper, header, fileFrame, fileForm, fileInput, form, id, oldFile, newFile, title, uploadIcon, file, link, sort, submit, image, titleBlock, fileBlock, linkBlock, sortBlock, submitBlock, deleteIcon, deleteHandler, sbmBtn;
+            wrapper, header, fileFrame, fileForm, fileInput, form, id, oldFile, newFile, title, alt, uploadIcon, file, link, sort, submit, image, titleBlock, altBlock, fileBlock, linkBlock, sortBlock, submitBlock, deleteIcon, deleteHandler, sbmBtn;
 
         wrapper = makeYosliDiv('fields form');
 
@@ -45,6 +45,7 @@ var yosliBackendSlides = (function () { 'use strict';
         oldFile    = makeYosliInput('hidden', 'old_filename', slide.filename);
         newFile    = makeYosliInput('hidden', 'is_new_filename', '');
         title      = makeYosliInput('text', 'title', slide.title);
+        alt        = makeYosliInput('text', 'alt', slide.alt);
         uploadIcon = $('<i />').attr('class', 'icon16 upload');
         file       = $('<a />').attr( { 'href': '#', 'id': 'file-upload-link' } ).append(uploadIcon, '{_wp("Upload")}');
         link       = makeYosliInput('text', 'link', slide.link);
@@ -58,6 +59,7 @@ var yosliBackendSlides = (function () { 'use strict';
         }
 
         titleBlock  = makeYosliFieldBlock('{_wp("Title")}', title);
+        altBlock    = makeYosliFieldBlock('{_wp("Alt")}', alt);
         fileBlock   = makeYosliFieldBlock('{_wp("Image")}', file);
         linkBlock   = makeYosliFieldBlock('{_wp("Link")}', link);
         sortBlock   = makeYosliFieldBlock('{_wp("Sort")}', sort);
@@ -68,7 +70,7 @@ var yosliBackendSlides = (function () { 'use strict';
         if (image) {
             form.append(image);
         }
-        form.append(id, oldFile, newFile, titleBlock, fileBlock, linkBlock, sortBlock, submitBlock);
+        form.append(id, oldFile, newFile, titleBlock, altBlock, fileBlock, linkBlock, sortBlock, submitBlock);
 
         wrapper.append(header, fileFrame, fileForm, form);
 
@@ -217,7 +219,7 @@ var yosliBackendSlides = (function () { 'use strict';
     onCreateHandler = function (event) {
         event.preventDefault();
 
-        var slide = { title: '', filename: '', link: '', sort: '' };
+        var slide = { title: '', alt: '', filename: '', link: '', sort: '' };
         var url   = '?plugin=yosli&action=create';
         var form  = makeYosliForm(slide, url, '{_wp("To create a slide")}');
 

@@ -8,7 +8,7 @@
         <div id="yosli-slider" class="nivoSlider">
             {section name=i loop=$slides}
                 {if $slides[i].link}<a href="{$slides[i].link|htmlspecialchars}" {if isset($settings.status_target_blank) && $settings.status_target_blank === 'on'}target="_blank"{/if}>{/if} 
-                    <img src="{$wa_url}wa-data/public/shop/yosli/{$slides[i].filename}" data-thumb="{$wa_url}wa-data/public/shop/yosli/{$slides[i].filename}" alt="{$slides[i].title|htmlspecialchars}" title="{$slides[i].title|htmlspecialchars}" /> 
+                    <img src="{$wa_url}wa-data/public/shop/yosli/{$slides[i].filename}" data-thumb="{$wa_url}wa-data/public/shop/yosli/{$slides[i].filename}" alt="{$slides[i].alt|htmlspecialchars}" title="{$slides[i].title|htmlspecialchars}" /> 
                 {if $slides[i].link}</a>{/if}
             {/section}
         </div>

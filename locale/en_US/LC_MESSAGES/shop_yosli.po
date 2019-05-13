@@ -8,9 +8,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: en_US\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Basepath: .\n"
+"Language: en_US\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: .\n"
 
@@ -164,3 +165,6 @@ msgstr ""
 msgid "Open links in a new tab"
 msgstr ""
 
+#: /wa-apps/shop/plugins/yosli/js/yosli.backend.slides.js:62
+msgid "Alt"
+msgstr ""

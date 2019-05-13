@@ -5,7 +5,7 @@
  */
 return array(
     'name' => /*_wp*/('Slider'),
-    'version' => '1.1.0',
+    'version' => '1.1.1',
     'img' => 'img/yosli.png',
     'vendor' => 1020720,
     'shop_settings' => true,

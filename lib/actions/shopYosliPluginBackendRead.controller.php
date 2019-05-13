@@ -13,6 +13,7 @@ class shopYosliPluginBackendReadController extends waJsonController {
         $slide = $model->getById($id);
 
         $slide['title'] = htmlspecialchars($slide['title']);
+        $slide['alt'] = htmlspecialchars($slide['alt']);
         $slide['link']  = htmlspecialchars($slide['link']);
         $slide['sort']  = htmlspecialchars($slide['sort']);
 

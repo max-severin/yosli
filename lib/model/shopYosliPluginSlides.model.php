@@ -13,6 +13,7 @@ class shopYosliPluginSlidesModel extends waModel {
 
         foreach ($slides as $id => $slide) {
             $slides[$id]['title'] = htmlspecialchars($slide['title']);
+            $slides[$id]['alt']   = htmlspecialchars($slide['alt']);
             $slides[$id]['link']  = htmlspecialchars($slide['link']);
             $slides[$id]['sort']  = htmlspecialchars($slide['sort']);
         }
